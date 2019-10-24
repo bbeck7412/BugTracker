@@ -9,9 +9,9 @@ namespace BugTracker.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Created { get; set; }
-
+        public int TicketId { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+
         public TicketStatus()
         {
             Tickets = new HashSet<Ticket>();

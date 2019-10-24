@@ -14,6 +14,6 @@ namespace BugTracker.Models
         public bool IsRead { get; set; }
 
         public virtual ApplicationUser User { get; set; }
-
+        public virtual Ticket Ticket { get; set; }
     }
 }

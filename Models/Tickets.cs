@@ -44,7 +44,8 @@ namespace BugTracker.Models
             TicketComments = new HashSet<TicketComment>();
             TicketHistories = new HashSet<TicketHistory>();
             TicketAttachments = new HashSet<TicketAttachment>();
-
+            TicketNotifications = new HashSet<TicketNotification>();
+            
         }
         
     }
