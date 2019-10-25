@@ -7,6 +7,7 @@ namespace BugTracker.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Configuration;
 
     internal sealed class Configuration : DbMigrationsConfiguration<BugTracker.Models.ApplicationDbContext>
     {
@@ -48,6 +49,7 @@ namespace BugTracker.Migrations
 
             #region User creation
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var demoPassword = WebConfigurationManager.AppSettings["DemoPassword"];
 
             if (!context.Users.Any(u => u.Email == "Bbeck7412@gmail.com"))
             {
@@ -126,6 +128,41 @@ namespace BugTracker.Migrations
 
             var demoSub = userManager.FindByEmail("DemoSub@mailinator.com").Id;
             userManager.AddToRole(adminId, "Submitter");
+
+            #endregion
+
+            #region Assign seeded values
+            
+            context.Projects.AddOrUpdate(
+            p => p.Name,
+                new Project { Name = "Brandon's Portfolio", Description = "My Portfolio website", Created = DateTime.Now },
+                new Project { Name = "Brandon's Blog", Description = "My Blog Project Using MVC", Created = DateTime.Now },
+                new Project { Name = "Brandon's Bug Tracker", Description = "My Bug Tracker Project Using MVC", Created = DateTime.Now }
+
+                );
+            context.TicketPriorities.AddOrUpdate(
+                p => p.Name,
+                new TicketPriority { Name = "Low Priority", Description = "Application or personal procedure unusable, where a workaround is available or a repair is possible." },
+                new TicketPriority { Name = "Normal", Description = "Non-critical function or procedure, unusable or hard to use having an operational impact, but with no direct impact on services availability. A workaround is available." },
+                new TicketPriority { Name = "Important", Description = "Critical functionality or network access interrupted, degraded or unusable, having a severe impact on services availability. No acceptable alternative is possible." },
+                new TicketPriority { Name = "Critical", Description = "Interruption making a critical functionality inaccessible or a complete network interruption causing a severe impact on services availability. There is no possible alternative." }
+                );
+
+            context.TicketTypes.AddOrUpdate(
+                p => p.Name,
+                new TicketType { Name = "Bug", Description = "A bug has been reported in the software." },
+                new TicketType { Name = "Feature Request", Description = "A client has requested a new feature to be implemented." },
+                new TicketType { Name = "Technical Support", Description = "A client needs assistance using software features." }
+                );
+
+            context.TicketStatus.AddOrUpdate(
+                p => p.Name,
+                new TicketStatus { Name = "Open", Description = "Ticket Creation" },
+                new TicketStatus { Name = "Closed", Description = "Ticket has been canceled due to accidental creation or client request." },
+                new TicketStatus { Name = "In Progress", Description = "Ticket has been assigned to a team member to be resolved." },
+                new TicketStatus { Name = "Resolved", Description = "Ticket has been completed" }
+                );
+
 
             #endregion
             //  This method will be called after migrating to the latest version.

@@ -55,5 +55,25 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         return new ApplicationDbContext();
     }
-}
+
+        public System.Data.Entity.DbSet<BugTracker.Models.Project> Projects { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketAttachment> TicketAttachments { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.Ticket> Tickets { get; set; }
+
+        
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketComment> TicketComments { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketHistory> TicketHistories { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketNotification> TicketNotifications { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketPriority> TicketPriorities { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketStatus> TicketStatus { get; set; }
+
+        public System.Data.Entity.DbSet<BugTracker.Models.TicketType> TicketTypes { get; set; }
+    }
 }
