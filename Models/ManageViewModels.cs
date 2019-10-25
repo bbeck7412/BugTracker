@@ -28,7 +28,7 @@ namespace BugTracker.Models
     public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(40, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
@@ -47,7 +47,7 @@ namespace BugTracker.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(40, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }

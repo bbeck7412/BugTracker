@@ -200,7 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\demo.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\smartadmin-production-plugins.min.css" />
     <Content Include="Content\smartadmin-production.min.css" />
@@ -222,7 +221,6 @@
     <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\demo.min.js" />
     <Content Include="Scripts\fastclick.min.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\jarvis.widget.min.js" />
