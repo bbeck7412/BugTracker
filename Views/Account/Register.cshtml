@@ -47,18 +47,16 @@
 
 </head>
 
-<body id="login">
+<body class="animated fadeInDown" id="login">
 
     <header id="header">
         <!--<span id="logo"></span>-->
 
         <div id="logo-group">
-            <span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
-
-            <!-- END AJAX-DROPDOWN -->
+            <span id="logo"> <img src="img/logo.png" alt="Bug Incinerator"> </span>
         </div>
 
-        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Already registered?</span> <a href="login.html" class="btn btn-danger">Sign In</a> </span>
+        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Already registered?</span> <a href=@Url.Action("Login","Account") class="btn btn-danger">Sign In</a> </span>
 
     </header>
 
@@ -160,9 +158,9 @@
 
                 </div>
             </div>
-            </div>
         </div>
- 
+    </div>
+
 
     <!--================================================== -->
     <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
