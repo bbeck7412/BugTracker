@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BugTracker.Models.RegisterViewModel
+
+@{
     Layout = null;
 }
 
@@ -83,7 +85,8 @@
                                 <section>
                                     <label class="input">
                                         <i class="icon-append fa fa-user"></i>
-                                        <input type="text" name=" First Name " placeholder=" First Name ">
+                                        @Html.TextAreaFor(model => model.FirstName, new { @class="Form-control", placeholder = "First Name"})
+                                        @*<input type="text" name=" FirstName " placeholder=" First Name ">*@
                                         <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
                                     </label>
                                 </section>
@@ -91,7 +94,8 @@
                                 <section>
                                     <label class="input">
                                         <i class="icon-append fa fa-user"></i>
-                                        <input type="text" name=" Last Name " placeholder=" Last Name ">
+                                        @Html.TextAreaFor(model => model.LastName, new { @class = "Form-control", placeholder = "Last Name" })
+                                        @*<input type="text" name=" LastName " placeholder=" Last Name ">*@
                                         <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
                                     </label>
                                 </section>
@@ -99,7 +103,8 @@
                                 <section>
                                     <label class="input">
                                         <i class="icon-append fa fa-user"></i>
-                                        <input type="text" name=" username " placeholder=" Username ">
+                                        @Html.TextAreaFor(model => model.UserName, new { @class = "Form-control", placeholder = " Username" })
+                                        @*<input type="text" name="UserName" placeholder=" Username ">*@
                                         <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
                                     </label>
                                 </section>
@@ -107,7 +112,8 @@
                                 <section>
                                     <label class="input">
                                         <i class="icon-append fa fa-envelope"></i>
-                                        <input type="email" name=" email " placeholder=" Email address ">
+                                        @Html.TextAreaFor(model => model.Email, new { @class = "Form-control", placeholder = "Email Adress" })
+                                        @*<input type="email" name=" Email " placeholder=" Email address ">*@
                                         <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
                                     </label>
                                 </section>
@@ -115,7 +121,8 @@
                                 <section>
                                     <label class="input">
                                         <i class="icon-append fa fa-lock"></i>
-                                        <input type="password" name="password" placeholder="Password" id="password">
+                                        @Html.PasswordFor(model => model.Password, new { @class = "Form-control", placeholder = "Password" })
+                                        @*<input type="password" name="Password" placeholder="Password" id="password">*@
                                         <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
                                     </label>
                                 </section>
@@ -123,7 +130,8 @@
                                 <section>
                                     <label class="input">
                                         <i class="icon-append fa fa-lock"></i>
-                                        <input type="password" name="passwordConfirm" placeholder="Confirm password">
+                                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "Form-control", placeholder = "Confirm Password" })
+                                        @*<input type="password" name="PasswordConfirm" placeholder="Confirm password">*@
                                         <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
                                     </label>
                                 </section>
