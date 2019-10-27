@@ -58,6 +58,11 @@ namespace BugTracker.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "PasswordConfirm")]
+        public string PasswordConFirm { get; set; }
+
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }

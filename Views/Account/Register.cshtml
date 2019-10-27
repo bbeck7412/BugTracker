@@ -72,7 +72,9 @@
 
                             </div>
                         </div>
-                        <form action="php/demo-register.php" id="smart-form-register" class="smart-form client-form">
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                        { @Html.AntiForgeryToken()
+
                             <header class="text-center">
                                 <h2><b> User Registration </b> </h2>
                             </header>
@@ -133,13 +135,7 @@
                                 </button>
                             </footer>
 
-                            <div class="message">
-                                <i class="fa fa-check"></i>
-                                <p>
-                                    Thank you for your registration!
-                                </p>
-                            </div>
-                        </form>
+                        }
                         <h5 class="text-center">- Or sign in using -</h5>
                         <ul class="list-inline text-center">
                             <li>

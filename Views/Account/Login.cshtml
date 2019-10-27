@@ -65,12 +65,9 @@
                 <div class="col-md12">
                     <div class=" row">
                         <div class=" col-sm-offset-4 col-sm-4">
-                            <div class="row">
-                                <div class="col-md-12">
+                            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                            { @Html.AntiForgeryToken()
 
-                                </div>
-                            </div>
-                            <form action="php/demo-register.php" id="smart-form-register" class="smart-form client-form">
                                 <header class="text-center">
                                     <h2><b> Account Login </b> </h2>
                                 </header>
@@ -78,7 +75,7 @@
                                     <section>
                                         <label class="input">
                                             <i class="icon-append fa fa-envelope"></i>
-                                            <input type="email" name=" email " placeholder=" Email address ">
+                                            <input type="email" name="Email" placeholder=" Email address ">
                                             <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
                                         </label>
                                     </section>
@@ -86,7 +83,7 @@
                                     <section>
                                         <label class="input">
                                             <i class="icon-append fa fa-lock"></i>
-                                            <input type="password" name="password" placeholder="Password" id="password">
+                                            <input type="password" name="Password" placeholder="Password" id="password">
                                             <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
                                         </label>
                                     </section>
@@ -94,7 +91,7 @@
                                     <section>
                                         <label class="input">
                                             <i class="icon-append fa fa-lock"></i>
-                                            <input type="password" name="passwordConfirm" placeholder="Confirm password">
+                                            <input type="password" name="PasswordConfirm" placeholder="Confirm password">
                                             <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
                                         </label>
                                     </section>
@@ -106,13 +103,7 @@
                                     </button>
                                 </footer>
 
-                                <div class="message">
-                                    <i class="fa fa-check"></i>
-                                    <p>
-                                        Thank you for your registration!
-                                    </p>
-                                </div>
-                            </form>
+                            }
                             <h5 class="text-center">- Or sign in using -</h5>
                             <ul class="list-inline text-center">
                                 <li>
