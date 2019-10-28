@@ -136,6 +136,7 @@ namespace BugTracker.Controllers
 
         //
         // GET: /Account/Register
+        
         [AllowAnonymous]
         public ActionResult Register()
         {

@@ -74,75 +74,53 @@
 
                             </div>
                         </div>
-                        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-                        { @Html.AntiForgeryToken()
-
-                            <header class="text-center">
-                                <h2><b> User Registration </b> </h2>
-                            </header>
-
-                            <fieldset>
-                                <section>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-user"></i>
-                                        @Html.TextAreaFor(model => model.FirstName, new { @class="Form-control", placeholder = "First Name"})
-                                        @*<input type="text" name=" FirstName " placeholder=" First Name ">*@
-                                        <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
-                                    </label>
-                                </section>
-
-                                <section>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-user"></i>
-                                        @Html.TextAreaFor(model => model.LastName, new { @class = "Form-control", placeholder = "Last Name" })
-                                        @*<input type="text" name=" LastName " placeholder=" Last Name ">*@
-                                        <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
-                                    </label>
-                                </section>
-
-                                <section>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-user"></i>
-                                        @Html.TextAreaFor(model => model.UserName, new { @class = "Form-control", placeholder = " Username" })
-                                        @*<input type="text" name="UserName" placeholder=" Username ">*@
-                                        <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
-                                    </label>
-                                </section>
-
-                                <section>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-envelope"></i>
-                                        @Html.TextAreaFor(model => model.Email, new { @class = "Form-control", placeholder = "Email Adress" })
-                                        @*<input type="email" name=" Email " placeholder=" Email address ">*@
-                                        <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
-                                    </label>
-                                </section>
-
-                                <section>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-lock"></i>
-                                        @Html.PasswordFor(model => model.Password, new { @class = "Form-control", placeholder = "Password" })
-                                        @*<input type="password" name="Password" placeholder="Password" id="password">*@
-                                        <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
-                                    </label>
-                                </section>
-
-                                <section>
-                                    <label class="input">
-                                        <i class="icon-append fa fa-lock"></i>
-                                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "Form-control", placeholder = "Confirm Password" })
-                                        @*<input type="password" name="PasswordConfirm" placeholder="Confirm password">*@
-                                        <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
-                                    </label>
-                                </section>
-                            </fieldset>
-
-                            <footer>
-                                <button id="Register" type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </footer>
-
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <h4>Create a new account.</h4>
+                            <hr />
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Register" />
+                                </div>
+                            </div>
                         }
                         <h5 class="text-center">- Or sign in using -</h5>
                         <ul class="list-inline text-center">
