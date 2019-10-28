@@ -18,7 +18,18 @@ namespace BugTracker.Controllers
         {
             ViewBag.UserIds = new MultiSelectList(db.Users, "Id","Email");
             ViewBag.Role = new SelectList(db.Roles,"Name","Name");
-            return View();
+
+            var users = new List<ManageRolesViewModel>();
+            foreach (var user in db.Users.ToList())
+            {
+                users.Add(new ManageRolesViewModel
+                {
+                    UserName = $"{user.LastName},{user.FirstName}",
+                    RoleName = roleHelper.ListUserRoles(user.Id).FirstOrDefault()
+                });
+            }
+
+            return View(users);
         }
 
         [HttpPost]

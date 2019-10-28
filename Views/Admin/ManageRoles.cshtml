@@ -1,9 +1,13 @@
-﻿@{
+﻿@model IEnumerable<BugTracker.Models.ManageRolesViewModel>
+@{
     ViewBag.Title = "ManageRoles";
 }
 <style>
     .cntrlWide{
     width:100%;
+    }
+    .ListBoxHt{
+        height:300px;
     }
 </style>
 
@@ -15,7 +19,7 @@
         { @Html.AntiForgeryToken()
         <div class="row">
             <div class=" col-md-12">
-                @Html.ListBox("UserIds",null,new { @class = "cntrlWide"})
+                @Html.ListBox("UserIds",null,new { @class = "cntrlWide ListBoxHt"})
             </div>
         </div>
         <div class="row">
@@ -42,14 +46,14 @@
                 <th></th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var user in Model)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor()
+                        @Html.DisplayFor(model => user.UserName)
                     </td>
                     <td>
-                        @Html.DisplayFor()
+                        @Html.DisplayFor(model => user.RoleName)
                     </td>
                 </tr>
             }
