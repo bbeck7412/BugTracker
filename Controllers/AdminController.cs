@@ -1,4 +1,5 @@
-﻿using BugTracker.Models;
+﻿using BugTracker.Helpers;
+using BugTracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,43 @@ namespace BugTracker.Controllers
     public class AdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private RoleHelper roleHelper = new RoleHelper();
 
         // GET: Admin
         public ActionResult ManageRoles()
         {
-            ViewBag.Users = new MultiSelectList(db.Users, "Id","Email");
+            ViewBag.UserIds = new MultiSelectList(db.Users, "Id","Email");
             ViewBag.Role = new SelectList(db.Roles,"Name","Name");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ManageRoles()
+        public ActionResult ManageRoles(List<string> userIds, string role)
         {
-            return View();
+            //Unenroll all the slected users from occupied roles
+            foreach(var userId in userIds)
+            {
+                //What is the role?
+                var userRole = roleHelper.ListUserRoles(userId).FirstOrDefault();
+                if(userRole != null)
+                {
+                    roleHelper.RemoveUserFromRole(userId,userRole);
+                }
+
+            }
+
+
+            // Add them to selected Role
+
+            if (!string.IsNullOrEmpty(role))
+            {
+                foreach (var userId in userIds)
+                {
+                    roleHelper.AddUserToRole(userId, role);
+                }
+            }
+            return RedirectToAction("ManageRoles","Admin");
         }
     }
 }
