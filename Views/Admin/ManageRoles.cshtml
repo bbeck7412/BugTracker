@@ -1,69 +1,17 @@
-﻿@model IEnumerable<BugTracker.Models.ManageRolesViewModel>
+﻿
 @{
-    ViewBag.Title = "ManageRoles";
+    Layout = null;
 }
-<style>
-    .cntrlWide{
-    width:100%;
-    }
-    .ListBoxHt{
-        height:300px;
-    }
-</style>
 
-<h2>ManageRoles</h2>
+<!DOCTYPE html>
 
-<div class="row">
-    <div class="col-md-6">
-        @using (Html.BeginForm())
-        { @Html.AntiForgeryToken()
-        <div class="row">
-            <div class=" col-md-12">
-                @Html.ListBox("UserIds",null,new { @class = "cntrlWide ListBoxHt"})
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-md-12">
-                @Html.DropDownList("Role",null,"--Select Role--",new { @class = "cntrlWide"})
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-md-12">
-                <button type="submit" class=" btn btn bg-primary cntrlWide"> Submit </button>
-            </div>
-        </div>
-        }
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ManageRoles</title>
+</head>
+<body>
+    <div> 
     </div>
-    <div class="col-md-6">
-
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayName("User Name")
-                </th>
-                <th>
-                    @Html.DisplayName("Role")
-                <th></th>
-            </tr>
-
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => user.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => user.RoleName)
-                    </td>
-                </tr>
-            }
-
-        </table>
-
-
-
-
-    </div>
-</div>
-
-
+</body>
+</html>
