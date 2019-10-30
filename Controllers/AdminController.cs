@@ -13,6 +13,7 @@ namespace BugTracker.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private RoleHelper roleHelper = new RoleHelper();
 
+       // [Authorize(Roles = "Admin,Administrator")]
         // GET: Admin
         public ActionResult ManageRoles()
         {
@@ -47,8 +48,6 @@ namespace BugTracker.Controllers
                 }
 
             }
-
-
             // Add them to selected Role
 
             if (!string.IsNullOrEmpty(role))

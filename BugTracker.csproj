@@ -204,6 +204,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery.dataTables.min.css" />
     <Content Include="Content\smartadmin-production-plugins.min.css" />
     <Content Include="Content\smartadmin-production.min.css" />
     <Content Include="Content\smartadmin-rtl.min.css" />
@@ -229,6 +230,7 @@
     <Content Include="Scripts\jarvis.widget.min.js" />
     <Content Include="Scripts\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Scripts\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.easy-pie-chart.min.js" />
     <Content Include="Scripts\jquery.flot.cust.min.js" />
     <Content Include="Scripts\jquery.flot.resize.min.js" />
