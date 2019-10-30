@@ -67,7 +67,7 @@ namespace BugTracker.Migrations
             {
                 userManager.Create(new ApplicationUser
                 {
-                    UserName = "DemoAdmin",
+                    UserName = "DemoAdmin@mailinator.com",
                     Email = "DemoAdmin@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Admin",
@@ -79,7 +79,7 @@ namespace BugTracker.Migrations
             {
                 userManager.Create(new ApplicationUser
                 {
-                    UserName = "DemoPM",
+                    UserName = "DemoPM@mailinator.com",
                     Email = "DemoPM@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Project Manager",
@@ -91,7 +91,7 @@ namespace BugTracker.Migrations
             {
                 userManager.Create(new ApplicationUser
                 {
-                    UserName = "DemoDev",
+                    UserName = "DemoDev@mailinator.com",
                     Email = "DemoDev@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Developer",
@@ -103,7 +103,7 @@ namespace BugTracker.Migrations
             {
                 userManager.Create(new ApplicationUser
                 {
-                    UserName = "DemoSub",
+                    UserName = "DemoSub@mailinator.com",
                     Email = "DemoSub@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Submitter",
