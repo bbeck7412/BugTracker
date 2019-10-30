@@ -13,8 +13,10 @@ namespace BugTracker.Models
     {
         [Display(Name = "FirstName")]
         public string FirstName { get; set; }
+
         [Display(Name ="LastName")]
         public string LastName { get; set; }
+
         [Display(Name ="DisplayName")]
         public string DisplayName { get; set; }
 
