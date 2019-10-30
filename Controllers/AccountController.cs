@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BugTracker.Models;
+using BugTracker.Helpers;
 
 namespace BugTracker.Controllers
 {
@@ -17,7 +18,7 @@ namespace BugTracker.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+         RoleHelper roleHelper= new RoleHelper();
         public AccountController()
         {
         }
@@ -152,10 +153,11 @@ namespace BugTracker.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName,FirstName= model.FirstName, LastName = model.LastName, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email,FirstName= model.FirstName, LastName = model.LastName, Email = model.Email, DisplayName = $"{model.FirstName} {model.LastName}" };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    roleHelper.AddUserToRole(user.Id, "Submitter");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

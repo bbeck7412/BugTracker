@@ -17,7 +17,7 @@ namespace BugTracker.Controllers
         // GET: Admin
         public ActionResult ManageRoles()
         {
-            ViewBag.UserIds = new MultiSelectList(db.Users, "Id","Email");
+            ViewBag.UserIds = new MultiSelectList(db.Users, "Id","DisplayName");
             ViewBag.Role = new SelectList(db.Roles,"Name","Name");
 
             var users = new List<ManageRolesViewModel>();

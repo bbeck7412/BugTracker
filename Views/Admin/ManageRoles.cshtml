@@ -18,13 +18,13 @@
             @Html.AntiForgeryToken()
             <div class="row">
                 <div class=" col-md-12">
-                    @Html.ListBox("userIds", null, new {@class = "cntrlWide"})
+                    @Html.ListBox("UserIds", null, new {@class = "cntrlWide"})
                 </div>
             </div>
 
             <div class="row">
                 <div class=" col-md-12">
-                    @Html.DropDownList("Role",null, new {@class = "cntrlWide"})
+                    @Html.DropDownList("Role",null, "--Select Role--", new {@class = "cntrlWide"})
                 </div>
             </div>
 
