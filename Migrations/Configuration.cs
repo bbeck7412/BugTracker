@@ -59,7 +59,7 @@ namespace BugTracker.Migrations
                     Email = "Bbeck7412@gmail.com",
                     FirstName = "Brandon",
                     LastName = "Beck",
-                    DisplayName = "Ctrl Z"
+                    DisplayName = "Brandon Beck"
                 }, "Abc&123");
             }
 
@@ -71,7 +71,7 @@ namespace BugTracker.Migrations
                     Email = "DemoAdmin@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Admin",
-                    DisplayName = "Administrator"
+                    DisplayName = "Demo Administrator"
                 }, "Abc&123");
             }
 
@@ -83,7 +83,7 @@ namespace BugTracker.Migrations
                     Email = "DemoPM@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Project Manager",
-                    DisplayName = "Project Manager"
+                    DisplayName = "Demo Project Manager"
                 }, "Abc&123");
             }
 
@@ -95,7 +95,7 @@ namespace BugTracker.Migrations
                     Email = "DemoDev@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Developer",
-                    DisplayName = "Developer"
+                    DisplayName = " Demo Developer"
                 }, "Abc&123");
             }
 
@@ -107,7 +107,7 @@ namespace BugTracker.Migrations
                     Email = "DemoSub@mailinator.com",
                     FirstName = "Demo",
                     LastName = "Submitter",
-                    DisplayName = "Submitter"
+                    DisplayName = "Demo Submitter"
                 }, "Abc&123");
             }
             #endregion
@@ -118,16 +118,16 @@ namespace BugTracker.Migrations
             userManager.AddToRole(adminId, "Admin");
 
             var demoAdmin = userManager.FindByEmail("DemoAdmin@mailinator.com").Id;
-            userManager.AddToRole(adminId, "Administrator");
+            userManager.AddToRole(demoAdmin, "Administrator");
 
             var demoPM = userManager.FindByEmail("DemoPM@mailinator.com").Id;
-            userManager.AddToRole(adminId, "ProjectManager");
+            userManager.AddToRole(demoPM, "ProjectManager");
 
             var demoDev  = userManager.FindByEmail("DemoDev@mailinator.com").Id;
-            userManager.AddToRole(adminId, "Developer");
+            userManager.AddToRole(demoDev, "Developer");
 
             var demoSub = userManager.FindByEmail("DemoSub@mailinator.com").Id;
-            userManager.AddToRole(adminId, "Submitter");
+            userManager.AddToRole(demoSub, "Submitter");
 
             #endregion
 
