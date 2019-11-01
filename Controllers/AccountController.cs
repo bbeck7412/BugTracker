@@ -144,6 +144,13 @@ namespace BugTracker.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+
+        public ActionResult NewRegister()
+        {
+            return View("ConfirmationSent");
+        }
+
         //
         // POST: /Account/Register
         [HttpPost]
@@ -171,7 +178,7 @@ namespace BugTracker.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code }, protocol: Request.Url.Scheme);
 
                     await EmailHelper.ComposeEmailAsync(model, callbackUrl);
-                    return RedirectToAction("Register", "Account");
+                    return RedirectToAction("NewRegister", "Account");
                 }
                 AddErrors(result);
             }
