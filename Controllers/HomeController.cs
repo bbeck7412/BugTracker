@@ -1,4 +1,5 @@
-﻿using BugTracker.Models;
+﻿using BugTracker.Helpers;
+using BugTracker.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -40,20 +41,8 @@ namespace BugTracker.Controllers
             {
                 try
                 {
-                    var emailTo = ConfigurationManager.AppSettings["emailfrom"];
-                    var from = $"{model.FromEmail}<{emailTo}>";
-
-                    var email = new MailMessage(from, emailTo)
-                    {
-                        Subject = model.Subject,
-                        Body = $"Email from your Bug Tracker <br/> {model.Body}",
-                        IsBodyHtml = true
-                    };
-
-                    var svc = new PersonalEmail();
-                    await svc.SendAsync(email);
-                    return View(new EmailModel());
-
+                    await EmailHelper.ComposeEmailAsync(model);
+                    return View("Index", "Home");
                 }
                 catch (Exception ex)
                 {

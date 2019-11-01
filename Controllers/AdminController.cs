@@ -59,5 +59,40 @@ namespace BugTracker.Controllers
             }
             return RedirectToAction("ManageRoles","Admin");
         }
+
+        //[Authorize(Roles = "Admin, Administrator, ProjectManager")]
+        //public ActionResult ManageProjectUsers()
+        //{
+        //    ViewBag.Projects = new MultiSelectList(db.Projects, "Id", "Name");
+        //    ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Developer"), "Id", "Email");
+        //    ViewBag.Submitters = new MultiSelectList(roleHelper.UsersInRole("Submitter"), "Id", "Email");
+
+        //    if (User.IsInRole("Admin"))
+        //    {
+        //        ViewBag.ProjectManagerId = new SelectList(roleHelper.UsersInRole("Project Manager"), "Id", "Email");
+        //    }
+
+        //    var myData = new List<UserProjectListViewModel>();
+        //    UserProjectListViewModel userVm = null;
+        //    foreach (var user in db.Users.ToList())
+        //    {
+        //        userVm = new UserProjectListViewModel
+        //        {
+        //            Name = $"{user.LastName},{user.FirstName}",
+        //            ProjectNames =
+                    
+        //            .ListUserProjects(user.Id).Select(p => p.Name).ToList()
+        //        };
+
+        //        if (userVm.ProjectNames.Count() == 0)
+        //            userVm.ProjectNames.Add("N/A");
+        //        myData.Add(userVm);
+        //    }
+        //    return View(myData);
+        //}
+                   
+
+       
+
     }
 }
