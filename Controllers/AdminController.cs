@@ -12,6 +12,7 @@ namespace BugTracker.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private RoleHelper roleHelper = new RoleHelper();
+        private ProjectHelper projectHelper = new ProjectHelper();
 
        // [Authorize(Roles = "Admin,Administrator")]
         // GET: Admin
@@ -60,36 +61,55 @@ namespace BugTracker.Controllers
             return RedirectToAction("ManageRoles","Admin");
         }
 
-        //[Authorize(Roles = "Admin, Administrator, ProjectManager")]
-        //public ActionResult ManageProjectUsers()
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult ManageProjectUsers(List<int> projects, string projectManagerId, List <string> developers, List<string> submitters)
         //{
-        //    ViewBag.Projects = new MultiSelectList(db.Projects, "Id", "Name");
-        //    ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Developer"), "Id", "Email");
-        //    ViewBag.Submitters = new MultiSelectList(roleHelper.UsersInRole("Submitter"), "Id", "Email");
-
-        //    if (User.IsInRole("Admin"))
+        //    if (projects != null)
         //    {
-        //        ViewBag.ProjectManagerId = new SelectList(roleHelper.UsersInRole("Project Manager"), "Id", "Email");
-        //    }
-
-        //    var myData = new List<UserProjectListViewModel>();
-        //    UserProjectListViewModel userVm = null;
-        //    foreach (var user in db.Users.ToList())
-        //    {
-        //        userVm = new UserProjectListViewModel
+        //        foreach (var user in projectHelper.UsersOnProject(projectId).ToList())
         //        {
-        //            Name = $"{user.LastName},{user.FirstName}",
-        //            ProjectNames =
-                    
-        //            .ListUserProjects(user.Id).Select(p => p.Name).ToList()
-        //        };
+        //            projectHelper.RemoveUserFromProject(user.Id, projectId);
+        //        }
 
-        //        if (userVm.ProjectNames.Count() == 0)
-        //            userVm.ProjectNames.Add("N/A");
-        //        myData.Add(userVm);
+        //        if (!string.IsNullOrEmpty(projectManagerId))
+        //        {
+        //            projectHelper.AddUserToProject(projectManagerId, projectId);
+        //        }
         //    }
-        //    return View(myData);
         //}
+
+        [Authorize(Roles = "Admin, ProjectManager, Administrator")]
+        public ActionResult ManageProjectUsers()
+        {
+            ViewBag.Projects = new MultiSelectList(db.Projects, "Id", "Name");
+            ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Developer"), "Id", "Email");
+            ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Submitter"), "Id", "Email");
+
+            if (User.IsInRole("Admin"))
+            {
+                ViewBag.ProjectManagerId = new SelectList(roleHelper.UsersInRole("ProjectManager"), "Id", "Email");
+            }
+
+
+            var myData = new List<UserProjectListViewModel>();
+            UserProjectListViewModel userVm = null;
+            foreach(var user in db.Users.ToList())
+            {
+                userVm = new UserProjectListViewModel
+                {
+                    Name = $"{user.LastName}, {user.FirstName}",
+                    ProjectNames = projectHelper.ListUserProjects(user.Id).Select(p => p.Name).ToList()
+                };
+
+                if (userVm.ProjectNames.Count() == 0)
+                    userVm.ProjectNames.Add("N/A");
+
+                myData.Add(userVm);
+            }
+
+        }
+
                    
 
        
