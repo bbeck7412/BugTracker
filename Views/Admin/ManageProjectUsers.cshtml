@@ -7,14 +7,12 @@
 <h2>@ViewBag.Title</h2>
 
 <div class=" container">
-
     <div class="row">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
             <div class=" col-md-4">
-                @Html.ListBox("Projects", null, new { @class = "form-control"})
+                @Html.ListBox("Projects", null, new { @class = "form-control" })
             </div>
 
             <div class=" col-md-1 col-md-off-1">
@@ -22,7 +20,7 @@
             </div>
 
             <div class=" col-md-4">
-                @if (User.IsInRole("Admin,Administrator"))
+                @if (User.IsInRole("Admin"))
                 {
                     <div class="row">
                         <div class="col-md-12">
@@ -62,7 +60,7 @@
                         <table class="table">
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model =>model.Name)
+                                    @Html.DisplayNameFor(model => model.Name)
                                 </th>
                                 <th>
                                     @Html.DisplayName("Projects")
@@ -76,9 +74,9 @@
                                         @Html.DisplayFor(modelItem => item.Name)
                                     </td>
                                     <td>
-                                        @foreach(var name in item.ProjectNames)
+                                        @foreach (var name in item.ProjectNames)
                                         {
-                                            @name <br/>
+                                            @name <br />
                                         }
                                     </td>
                                 </tr>
@@ -86,7 +84,12 @@
                         </table>
                     </div>
 
-                    }
-                </div>
+                }
+            </div>
+        }
 
+
+
+    </div>
 </div>
+

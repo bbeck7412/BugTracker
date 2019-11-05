@@ -100,8 +100,24 @@ namespace BugTracker.Controllers
                     }
 
                     if (developers !=null)
+                    {
+                        foreach(var developerId in developers)
+                        {
+                            projectHelper.AddUserToProject(developerId, projectId);
+                        }
+                    }
+
+                    if (submitters != null)
+                    {
+                        foreach (var submitterId in submitters)
+                        {
+                            projectHelper.AddUserToProject(submitterId, projectId);
+                        }
+                    }
                 }
             }
+
+            return RedirectToAction("ManageProjectUsers");
         }
 
         [Authorize(Roles = "Admin, ProjectManager, Administrator")]
@@ -109,7 +125,7 @@ namespace BugTracker.Controllers
         {
             ViewBag.Projects = new MultiSelectList(db.Projects, "Id", "Name");
             ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Developer"), "Id", "Email");
-            ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Submitter"), "Id", "Email");
+            ViewBag.Submitters = new MultiSelectList(roleHelper.UsersInRole("Submitter"), "Id", "Email");
 
             if (User.IsInRole("Admin"))
             {
