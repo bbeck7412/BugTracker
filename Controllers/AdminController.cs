@@ -79,6 +79,31 @@ namespace BugTracker.Controllers
         //    }
         //}
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ManageProjectUsers(List<int> projects, string projectManagerId, List <string> developers, List <string> submitters)
+        {
+
+            if(projects != null)
+            {
+                foreach (var projectId in projects)
+                {
+                    foreach (var user in projectHelper.UsersOnProject(projectId).ToList())
+                    {
+                        projectHelper.RemoveUserFromProject(user.Id, projectId);
+                    }
+
+                    if (!string.IsNullOrEmpty(projectManagerId))
+                    {
+                        projectHelper.AddUserToProject(projectManagerId, projectId);
+
+                    }
+
+                    if (developers !=null)
+                }
+            }
+        }
+
         [Authorize(Roles = "Admin, ProjectManager, Administrator")]
         public ActionResult ManageProjectUsers()
         {
@@ -107,6 +132,8 @@ namespace BugTracker.Controllers
 
                 myData.Add(userVm);
             }
+
+            return View(myData);
 
         }
 
