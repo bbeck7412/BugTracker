@@ -454,10 +454,6 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\select2.min.js" />
-    <Content Include="Scripts\smart.chat.manager.min.js" />
-    <Content Include="Scripts\smart.chat.ui.min.js" />
-    <Content Include="Scripts\SmartNotification.min.js" />
-    <Content Include="Scripts\voicecommand.min.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
