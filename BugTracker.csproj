@@ -424,6 +424,7 @@
     <Content Include="Images\ipad-landscape.png" />
     <Content Include="Images\ipad-portrait.png" />
     <Content Include="Images\iphone.png" />
+    <Content Include="Images\mybg.png" />
     <Content Include="Images\sptouch-icon-iphone.png" />
     <Content Include="Images\touch-icon-ipad-retina.png" />
     <Content Include="Images\touch-icon-ipad.png" />
