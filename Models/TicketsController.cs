@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BugTracker.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,13 +12,18 @@ namespace BugTracker.Models
 {
     public class TicketsController : Controller
     {
+        private RoleHelper roleHelper = new RoleHelper();
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Tickets
         public ActionResult Index()
         {
             var tickets = db.Tickets.Include(t => t.Developer).Include(t => t.Project).Include(t => t.Submitter).Include(t => t.TicketPriority).Include(t => t.TicketStatus).Include(t => t.TicketType);
-            return View(tickets.ToList());
+            
+            //What role do I occupy
+            
+            
+            return View(TicketHelper.ListMyTickets());
         }
 
         // GET: Tickets/Details/5
