@@ -20,30 +20,58 @@ namespace BugTracker.Helpers
         public List<Ticket>ListMyTickets()
         {
             var myTickets = new List<Ticket>();
+            var userId = HttpContext.Current.User.Identity.GetUserId();
+            var user = db.Users.Find(userId);
+
             //Step 1: Determine my role
-            var myRole = roleHelper.ListUserRoles(HttpContext.Current.User.Identity.GetUserId()).FirstOrDefault();
+            var myRole = roleHelper.ListUserRoles(userId).FirstOrDefault();
 
-            //Step 2: Use that role to build the appropriate set of Tickets
-            if (myRole == "Admin")
+            ////Step 2: Use that role to build the appropriate set of Tickets
+            //if (myRole == "Admin")
+            //{
+            //    myTickets.AddRange(db.Tickets);
+            //}
+            //else if (myRole == "ProjectManager")
+            //{
+
+            //    myTickets.AddRange(user.Projects.SelectMany(p => p.Tickets));
+            //}
+            //else if (myRole == "Developer")
+            //{
+            //    myTickets.AddRange(db.Tickets.Where(t => t.DeveloperId == userId));
+            //}
+            //else if (myRole == "Submitter")
+            //{
+            //    myTickets.AddRange(db.Tickets.Where(t => t.SubmitterId == userId));
+            //}
+
+            switch(myRole)
             {
+                case "Admin":
+                case "Administrator":
+                    myTickets.AddRange(db.Tickets);
+                 break;
 
-            }
-            else if (myRole == "ProjectManager")
-            {
+                case
+                "ProjectManager":
+                    myTickets.AddRange(user.Projects.SelectMany(p => p.Tickets));
+                break;
 
-            }
-            else if (myRole == "Developer")
-            {
+                case
+                "Developer":
+                    myTickets.AddRange(db.Tickets.Where(t => t.DeveloperId == userId));
+                break;
 
-            }
-            else if (myRole == "Submitter")
-            {
+                case 
+                "Submitter":
+                    myTickets.AddRange(db.Tickets.Where(t => t.SubmitterId == userId));
+                break;
 
+                default:
+                    break;
+                    
             }
-            else
-            {
 
-            }
 
             return myTickets;
         }

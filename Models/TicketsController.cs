@@ -14,16 +14,18 @@ namespace BugTracker.Models
     {
         private RoleHelper roleHelper = new RoleHelper();
         private ApplicationDbContext db = new ApplicationDbContext();
+        private TicketHelper ticketHelper = new TicketHelper();
 
         // GET: Tickets
+        [Authorize]
         public ActionResult Index()
         {
             var tickets = db.Tickets.Include(t => t.Developer).Include(t => t.Project).Include(t => t.Submitter).Include(t => t.TicketPriority).Include(t => t.TicketStatus).Include(t => t.TicketType);
-            
+
             //What role do I occupy
-            
-            
-            return View(TicketHelper.ListMyTickets());
+
+
+            return View(ticketHelper.ListMyTickets());
         }
 
         // GET: Tickets/Details/5
