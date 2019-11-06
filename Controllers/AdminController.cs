@@ -153,9 +153,7 @@ namespace BugTracker.Controllers
 
         }
 
-                   
-
-       
+                  
 
     }
 }
