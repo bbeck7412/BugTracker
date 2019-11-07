@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<BugTracker.Models.UserProjectListViewModel>
 @{
-    ViewBag.Title = "ManageProjectUsers";
+    ViewBag.Title = "Manage Project Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -54,41 +54,38 @@
                         <div class=" col-md-12">
                             @Html.ListBox("Submitters", null, new { @class = "form-control" })
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <table class="table">
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayName("Projects")
-                                </th>
-                            </tr>
-
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
-                                    </td>
-                                    <td>
-                                        @foreach (var name in item.ProjectNames)
-                                        {
-                                            @name <br />
-                                        }
-                                    </td>
-                                </tr>
-                            }
-                        </table>
-                    </div>
-
+                    </div>  
                 }
             </div>
         }
 
     </div>
-    
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayName("Projects")
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @foreach (var name in item.ProjectNames)
+                        {
+                            @name <br />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>  
 </div>
 

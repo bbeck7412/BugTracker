@@ -431,7 +431,16 @@ namespace BugTracker.Controllers
             return View(model);
         }
 
-        //
+        //GET: /Account/CustomLogOff
+        
+        public ActionResult CustomLogOff()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Login", "Account");
+        }
+
+
+
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
