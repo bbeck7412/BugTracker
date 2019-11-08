@@ -15,7 +15,7 @@ namespace BugTracker.Controllers
         private ProjectHelper projectHelper = new ProjectHelper();
 
         [Authorize(Roles = "Admin,Administrator")]
-        [ValidateAntiForgeryToken]
+        
         // GET: Admin
         public ActionResult ManageRoles()
         {
@@ -122,6 +122,7 @@ namespace BugTracker.Controllers
         }
 
         [Authorize(Roles = "Admin, ProjectManager, Administrator")]
+        
         public ActionResult ManageProjectUsers()
         {
             ViewBag.Projects = new MultiSelectList(db.Projects, "Id", "Name");
