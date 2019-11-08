@@ -71,7 +71,7 @@ namespace BugTracker.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Login","Account");
             }
 
             // This doesn't count login failures towards account lockout

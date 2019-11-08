@@ -461,6 +461,7 @@
     <Content Include="Scripts\login_script.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\pace.min.js" />
+    <Content Include="Scripts\register_scripts.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\smart.chat.manager.min.js" />
     <Content Include="Scripts\smart.chat.ui.min.js" />
