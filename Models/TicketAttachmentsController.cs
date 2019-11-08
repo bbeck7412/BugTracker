@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BugTracker.Helpers;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -48,12 +50,24 @@ namespace BugTracker.Models
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TicketId,Created,FilePath,Description,UserId")] TicketAttachment ticketAttachment)
+        public ActionResult Create([Bind(Include = "TicketId,Description")] TicketAttachment ticketAttachment)
         {
             if (ModelState.IsValid)
             {
+                //ticketAttachment.Created = DateTime.Now;
+                //ticketAttachment.UserId = User.Identity.GetUserId();
+
+                //if (FileUploadValidator.IsWebFriendlyImage(file) || FileUploadValidator.IsWebFriendlyFile(file))
+                //{
+                //    var fileName = Path.GetFileName(file.Name);
+                //    var justFileName = Path.GetFileNameWithoutExtension(fileName);
+                //    justFileName = StringUtilities.URLFriendly(justFileName);
+                //    fileName = $"{justFileName}"
+                //}
+
                 db.TicketAttachments.Add(ticketAttachment);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

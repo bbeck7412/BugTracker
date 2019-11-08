@@ -13,6 +13,11 @@ namespace BugTracker.Models
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult ManageProjectUsers()
+        {
+            return View("ManageProjectUsers");
+        }
+
         // GET: Projects
         public ActionResult Index()
         {

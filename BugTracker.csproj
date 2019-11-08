@@ -175,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\FileUploadValidator.cs" />
     <Compile Include="Helpers\NotificationHelper.cs" />
     <Compile Include="Helpers\ProjectHelper.cs" />
     <Compile Include="Helpers\RoleHelper.cs" />
@@ -209,6 +210,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\google_font.css" />
     <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="Content\img\alpha.png" />
     <Content Include="Content\img\avatars\1.png" />
@@ -437,6 +439,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\fastclick.min.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\global_functions.js" />
     <Content Include="Scripts\jarvis.widget.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-jvectormap-1.2.2.min.js" />
@@ -448,15 +451,20 @@
     <Content Include="Scripts\jquery.flot.resize.min.js" />
     <Content Include="Scripts\jquery.flot.time.min.js" />
     <Content Include="Scripts\jquery.flot.tooltip.min.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.mb.browser.min.js" />
     <Content Include="Scripts\jquery.sparkline.min.js" />
     <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery_ui.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\smart.chat.manager.min.js" />
+    <Content Include="Scripts\smart.chat.ui.min.js" />
     <Content Include="Scripts\SmartNotification.min.js" />
+    <Content Include="Scripts\voicecommand.min.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
