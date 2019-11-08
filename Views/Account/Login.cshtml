@@ -123,12 +123,9 @@
     <script src="~/Scripts/pace.min.js"></script>
 
     <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script>if (!window.jQuery) { document.write('<script src="js/libs/jquery-3.2.1.min.js"><\/script>'); }</script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script>if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui.min.js"><\/script>'); }</script>
+    <script src="~/Scripts/jquery_ui.js"></script>
 
     <!-- IMPORTANT: APP CONFIG -->
     <script src="~/Scripts/app.config.js"></script>
@@ -153,43 +150,8 @@
     <!-- MAIN APP JS FILE -->
     <script src="~/Scripts/app.min.js"></script>
 
-    <script>
-        runAllForms();
 
-        $(function () {
-            // Validation
-            $("#login-form").validate({
-                // Rules for form validation
-                rules: {
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 3,
-                        maxlength: 20
-                    }
-                },
-
-                // Messages for form validation
-                messages: {
-                    email: {
-                        required: 'Please enter your email address',
-                        email: 'Please enter a VALID email address'
-                    },
-                    password: {
-                        required: 'Please enter your password'
-                    }
-                },
-
-                // Do not change code below
-                errorPlacement: function (error, element) {
-                    error.insertAfter(element.parent());
-                }
-            });
-        });
-    </script>
+    <script src="~/Scripts/login_script.js"></script>
 
 </body>
 </html>

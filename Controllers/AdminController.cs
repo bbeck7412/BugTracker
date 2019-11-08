@@ -14,7 +14,7 @@ namespace BugTracker.Controllers
         private RoleHelper roleHelper = new RoleHelper();
         private ProjectHelper projectHelper = new ProjectHelper();
 
-       // [Authorize(Roles = "Admin,Administrator")]
+        [Authorize(Roles = "Admin,Administrator")]
         // GET: Admin
         public ActionResult ManageRoles()
         {
@@ -33,7 +33,7 @@ namespace BugTracker.Controllers
 
             return View(users);
         }
-
+        [Authorize (Roles = "Admin,Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ManageRoles(List<string> userIds, string role)

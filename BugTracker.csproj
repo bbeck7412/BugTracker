@@ -458,6 +458,7 @@
     <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery_ui.js" />
+    <Content Include="Scripts\login_script.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\select2.min.js" />
