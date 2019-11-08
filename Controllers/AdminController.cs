@@ -15,6 +15,7 @@ namespace BugTracker.Controllers
         private ProjectHelper projectHelper = new ProjectHelper();
 
         [Authorize(Roles = "Admin,Administrator")]
+        [ValidateAntiForgeryToken]
         // GET: Admin
         public ActionResult ManageRoles()
         {

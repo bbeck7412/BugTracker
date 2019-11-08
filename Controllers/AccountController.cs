@@ -168,8 +168,8 @@ namespace BugTracker.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    roleHelper.AddUserToRole(user.Id, "Submitter");
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //roleHelper.AddUserToRole(user.Id, "Submitter");
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code }, protocol: Request.Url.Scheme);
