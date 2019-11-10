@@ -208,7 +208,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\colordefault.css" />
+    <Content Include="Content\default.css" />
+    <Content Include="Content\extralayers.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\google_font.css" />
     <Content Include="Content\img\ajax-loader.gif" />
@@ -415,6 +419,9 @@
     <Content Include="Content\img\vt-menu.png" />
     <Content Include="Content\jquery.dataTables.css" />
     <Content Include="Content\jquery.dataTables.min.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\nivo-lightbox.css" />
+    <Content Include="Content\settings.css" />
     <Content Include="Content\smartadmin-production-plugins.min.css" />
     <Content Include="Content\smartadmin-production.min.css" />
     <Content Include="Content\smartadmin-rtl.min.css" />
@@ -437,13 +444,18 @@
     <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\classie.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\fastclick.min.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\global_functions.js" />
+    <Content Include="Scripts\gnmenu.js" />
     <Content Include="Scripts\jarvis.widget.min.js" />
+    <Content Include="Scripts\jquery-2.0.2.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Scripts\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.easy-pie-chart.min.js" />
@@ -454,18 +466,24 @@
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.mb.browser.min.js" />
+    <Content Include="Scripts\jquery.scrollUp.js" />
     <Content Include="Scripts\jquery.sparkline.min.js" />
+    <Content Include="Scripts\jquery.themepunch.plugins.min.js" />
+    <Content Include="Scripts\jquery.themepunch.revolution.min.js" />
     <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery_ui.js" />
+    <Content Include="Scripts\landing_bootstrap.min.js" />
     <Content Include="Scripts\login_script.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\nivo-lightbox.min.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\register_scripts.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\smart.chat.manager.min.js" />
     <Content Include="Scripts\smart.chat.ui.min.js" />
     <Content Include="Scripts\SmartNotification.min.js" />
+    <Content Include="Scripts\smoothscroll.js" />
     <Content Include="Scripts\voicecommand.min.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -549,6 +567,7 @@
     <Content Include="Views\Account\ConfirmationSent.cshtml" />
     <Content Include="private.config" />
     <Content Include="Views\Admin\ManageProjectUsers.cshtml" />
+    <Content Include="Views\Home\LandingPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

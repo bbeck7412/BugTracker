@@ -52,6 +52,11 @@ namespace BugTracker.Controllers
             }
             return View(model);
         }
+
+        public ActionResult LandingPage()
+        {
+            return View();
+        }
     }
 
 }
