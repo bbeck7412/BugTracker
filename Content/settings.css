@@ -1857,7 +1857,7 @@
 .tp-bannertimer {
 	width: 100%;
 	height: 10px;
-	background: url(../img/slider/timer.png);
+	background: url(/Images/timer.png);
 	position: absolute;
 	z-index: 200;
 	top: 0px;

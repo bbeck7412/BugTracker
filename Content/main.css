@@ -738,7 +738,7 @@ form#contact-form input:focus, form#contact-form select:focus, form#contact-form
 	color: #333;
 	font-weight: 300;
 	border: none;
-	background: url('../img/back-img1.png') center center, #ECECEC;
+	background: url('/Images/back-img1.png') center center, #ECECEC;
 	overflow: hidden;
 	margin-bottom: -1px;
 }
