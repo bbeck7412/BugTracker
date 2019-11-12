@@ -442,6 +442,7 @@
     <Content Include="Images\8.jpg" />
     <Content Include="Images\back-img1.png" />
     <Content Include="Images\BugInc.jpg" />
+    <Content Include="Images\Bug_Zapper.jpg" />
     <Content Include="Images\dummy.png" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\flags.png" />

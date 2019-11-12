@@ -18,6 +18,9 @@
             <div class=" col-md-1 col-md-off-1">
                 <button type="submit" class="btn btn-primary btn-lg"> Assign</button>
             </div>
+            <div class=" col-md-1 col-md-off-1">
+                <button type="submit" class="btn btn-danger btn-lg"> Remove </button>
+            </div>
 
             <div class=" col-md-4">
                 @if (User.IsInRole("Admin"))
@@ -32,30 +35,31 @@
                             @Html.DropDownList("ProjectManagerId", null, "--Select--", new { @class = "form-control" })
                         </div>
                     </div>
-                    <hr />
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3> Developers</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-12">
-                            @Html.ListBox("Developers", null, new { @class = "form-control" })
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3> Submitters </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-12">
-                            @Html.ListBox("Submitters", null, new { @class = "form-control" })
-                        </div>
-                    </div>  
+                    <hr />
                 }
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3> Developers</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-12">
+                        @Html.ListBox("Developers", null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3> Submitters </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-12">
+                        @Html.ListBox("Submitters", null, new { @class = "form-control" })
+                    </div>
+                </div>
+
             </div>
         }
 

@@ -61,31 +61,6 @@ namespace BugTracker.Controllers
             }
             return RedirectToAction("ManageRoles","Admin");
         }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult ManageProjectUsers(List<int> projects, string projectManagerId, List <string> developers, List<string> submitters)
-        //{
-        //    if (projects != null)
-        //    {
-        //        foreach (var user in projectHelper.UsersOnProject(projectId).ToList())
-        //        {
-        //            projectHelper.RemoveUserFromProject(user.Id, projectId);
-        //        }
-
-        //        if (!string.IsNullOrEmpty(projectManagerId))
-        //        {
-        //            projectHelper.AddUserToProject(projectManagerId, projectId);
-        //        }
-        //    }
-        //}
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-
-        public ActionResult ManageProjectUsers1()
-        {
-            return View("ManageProjectUsers");
-        }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -96,18 +71,19 @@ namespace BugTracker.Controllers
             {
                 foreach (var projectId in projects)
                 {
+                    //Remove everyone from this project
                     foreach (var user in projectHelper.UsersOnProject(projectId).ToList())
                     {
                         projectHelper.RemoveUserFromProject(user.Id, projectId);
                     }
-
+                    //Add back PM if possible
                     if (!string.IsNullOrEmpty(projectManagerId))
                     {
                         projectHelper.AddUserToProject(projectManagerId, projectId);
 
                     }
 
-                    if (developers !=null)
+                    if (developers != null)
                     {
                         foreach(var developerId in developers)
                         {
@@ -122,6 +98,7 @@ namespace BugTracker.Controllers
                             projectHelper.AddUserToProject(submitterId, projectId);
                         }
                     }
+                    
                 }
             }
 
