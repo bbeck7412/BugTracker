@@ -79,7 +79,14 @@ namespace BugTracker.Controllers
         //        }
         //    }
         //}
+        [HttpGet]
+        [ValidateAntiForgeryToken]
 
+        public ActionResult ManageProjectUsers1()
+        {
+            return View("ManageProjectUsers");
+        }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ManageProjectUsers(List<int> projects, string projectManagerId, List <string> developers, List <string> submitters)
@@ -155,7 +162,6 @@ namespace BugTracker.Controllers
 
         }
 
-                  
 
     }
 }

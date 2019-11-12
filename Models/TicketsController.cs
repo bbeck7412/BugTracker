@@ -15,7 +15,7 @@ namespace BugTracker.Models
         private RoleHelper roleHelper = new RoleHelper();
         private ApplicationDbContext db = new ApplicationDbContext();
         private TicketHelper ticketHelper = new TicketHelper();
-
+        private TicketHistoryHelper auditHelper = new TicketHistoryHelper();
         // GET: Tickets
         [Authorize]
         public ActionResult Index()
@@ -23,8 +23,7 @@ namespace BugTracker.Models
             var tickets = db.Tickets.Include(t => t.Developer).Include(t => t.Project).Include(t => t.Submitter).Include(t => t.TicketPriority).Include(t => t.TicketStatus).Include(t => t.TicketType);
 
             //What role do I occupy
-
-
+            
             return View(ticketHelper.ListMyTickets());
         }
 
@@ -108,9 +107,20 @@ namespace BugTracker.Models
         {
             if (ModelState.IsValid)
             {
+                //Record old ticket before it gets updated for comparison
+                var oldTicket = db.Tickets.AsNoTracking().FirstOrDefault(t => t.Id == ticket.Id);
+
+                ticket.Updated = DateTime.Now;
                 db.Entry(ticket).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                var newTicket = db.Tickets.AsNoTracking().FirstOrDefault(t => t.Id == ticket.Id);
+
+                //HistoryHelper decides whether a history record needs to be added...
+
+                auditHelper.RecordHistoricalChanges(oldTicket, ticket);
+
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.DeveloperId = new SelectList(db.Users, "Id", "FirstName", ticket.DeveloperId);
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", ticket.ProjectId);

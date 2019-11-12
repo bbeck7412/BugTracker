@@ -14,9 +14,28 @@ namespace BugTracker.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            // Setting up project View Models  
+            List<ProjectViewModel> prjVM = new List<ProjectViewModel>();
+            var projects = db.Projects.ToList();
+            foreach(var prj in projects)
+            {
+                ProjectViewModel vm = new ProjectViewModel();
+                vm.Project = prj;
+                var pmId = db.Roles.FirstOrDefault(p => p.Name == "ProjectManager").Id;
+                vm.ProjectManager = db.Projects.Find(prj.Id).Users.FirstOrDefault(u => u.Roles.Any( r => r.RoleId == pmId));
+                prjVM.Add(vm);
+            }
+
+
+            //Setting up dashboard view model 
+            var model = new DashboardViewModel();
+            model.Projects = prjVM;
+            model.Tickets = db.Tickets.ToList();
+            model.Users = db.Users.ToList();
+            return View(model);
         }
 
         public ActionResult About()

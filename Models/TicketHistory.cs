@@ -10,8 +10,8 @@ namespace BugTracker.Models
         public int Id { get; set; }
         public int TicketId { get; set; }
         public string Property { get; set; }
-        public int OldValue { get; set; }
-        public int NewValue { get; set; }
+        public string OldValue { get; set; }
+        public string NewValue { get; set; }
         public string Changed { get; set; }
         public string UserId { get; set; }
 
