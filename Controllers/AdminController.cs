@@ -14,8 +14,7 @@ namespace BugTracker.Controllers
         private RoleHelper roleHelper = new RoleHelper();
         private ProjectHelper projectHelper = new ProjectHelper();
 
-        [Authorize(Roles = "Admin,Administrator")]
-        
+        //[Authorize(Roles = "Admin,Administrator")]
         // GET: Admin
         public ActionResult ManageRoles()
         {
@@ -34,12 +33,13 @@ namespace BugTracker.Controllers
 
             return View(users);
         }
-        [Authorize (Roles = "Admin,Administrator")]
+
+        //[Authorize (Roles = "Admin,Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ManageRoles(List<string> userIds, string role)
         {
-            //Unenroll all the slected users from occupied roles
+            //Unenroll all the selected users from occupied roles
             foreach(var userId in userIds)
             {
                 //What is the role?
@@ -62,6 +62,8 @@ namespace BugTracker.Controllers
             return RedirectToAction("ManageRoles","Admin");
         }
         
+
+        //[Authorize (Roles = "Admin,Administrator,ProjectManager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ManageProjectUsers(List<int> projects, string projectManagerId, List <string> developers, List <string> submitters)
