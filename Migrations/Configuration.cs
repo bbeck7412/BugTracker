@@ -137,7 +137,10 @@ namespace BugTracker.Migrations
             p => p.Name,
                 new Project { Name = "Brandon's Portfolio", Description = "My Portfolio website", Created = DateTime.Now },
                 new Project { Name = "Brandon's Blog", Description = "My Blog Project Using MVC", Created = DateTime.Now },
-                new Project { Name = "Brandon's Bug Tracker", Description = "My Bug Tracker Project Using MVC", Created = DateTime.Now }
+                new Project { Name = "Brandon's Bug Tracker", Description = "My Bug Tracker Project Using MVC & C#", Created = DateTime.Now }
+                //new Project { Name = "Financial Portal", Description = "Financial portal Project Using MVC & C#", Created = DateTime.Now }
+                //new Project { Name = "Xamarin Mobile Project", Description = "My Xamarin Project", Created = DateTime.Now }
+
 
                 );
             context.TicketPriorities.AddOrUpdate(
