@@ -136,10 +136,10 @@ namespace BugTracker.Migrations
             context.Projects.AddOrUpdate(
             p => p.Name,
                 new Project { Name = "Brandon's Portfolio", Description = "My Portfolio website", Created = DateTime.Now },
-                new Project { Name = "Brandon's Blog", Description = "My Blog Project Using MVC", Created = DateTime.Now },
-                new Project { Name = "Brandon's Bug Tracker", Description = "My Bug Tracker Project Using MVC & C#", Created = DateTime.Now }
-                //new Project { Name = "Financial Portal", Description = "Financial portal Project Using MVC & C#", Created = DateTime.Now }
-                //new Project { Name = "Xamarin Mobile Project", Description = "My Xamarin Project", Created = DateTime.Now }
+                new Project { Name = "Brandon's Blog", Description = "My Blog Project Using MVC & C#", Created = DateTime.Now },
+                new Project { Name = "Brandon's Bug Tracker", Description = "My Bug Tracker Project Using MVC & C#", Created = DateTime.Now },
+                new Project { Name = "Financial Portal", Description = "Financial portal Project Using MVC & C#", Created = DateTime.Now },
+                new Project { Name = "Xamarin Mobile Project", Description = "My Xamarin Project", Created = DateTime.Now }
 
 
                 );
@@ -153,18 +153,24 @@ namespace BugTracker.Migrations
 
             context.TicketTypes.AddOrUpdate(
                 p => p.Name,
-                new TicketType { Name = "Bug", Description = "A bug has been reported in the software." },
+                new TicketType { Name = "Bugs", Description = "A bug has been reported in the software." },
                 new TicketType { Name = "Feature Request", Description = "A client has requested a new feature to be implemented." },
                 new TicketType { Name = "Technical Support", Description = "A client needs assistance using software features." }
                 );
 
             context.TicketStatus.AddOrUpdate(
                 p => p.Name,
-                new TicketStatus { Name = "Open", Description = "Ticket Creation" },
+                new TicketStatus { Name = "New", Description = "Ticket creation successful but has not been assigned to a user." },
+                new TicketStatus { Name = "Open", Description = "Ticket has been assigned to a user who is working to resolve the issue." },
+                new TicketStatus { Name = "On-Hold", Description = "Ticket awaiting more information from the requesting user or third party assistance." },
                 new TicketStatus { Name = "Closed", Description = "Ticket has been canceled due to accidental creation or client request." },
-                new TicketStatus { Name = "In Progress", Description = "Ticket has been assigned to a team member to be resolved." },
-                new TicketStatus { Name = "Resolved", Description = "Ticket has been completed" }
+                new TicketStatus { Name = "Resolved", Description = "Ticket has been completed by assigned user." }
                 );
+
+            //context.Tickets.AddOrUpdate(
+            //    t => t.Title,
+            //    new Ticket { Title = "Random Logout", Description = "I keep getting randomly logged out for no reason.", Created = DateTime.Now}
+            //    );
 
 
             #endregion
