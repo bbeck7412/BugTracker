@@ -76,6 +76,12 @@ namespace BugTracker.Controllers
         {
             return View();
         }
+
+        public ActionResult ProfilePage()
+        {
+            return RedirectToAction("ProfilePage","Home");
+        }
+
     }
 
 }

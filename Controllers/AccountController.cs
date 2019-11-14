@@ -539,5 +539,11 @@ namespace BugTracker.Controllers
             }
         }
         #endregion
+
+        public ActionResult ProfilePage()
+        {
+            return View();
+        }
+
     }
 }

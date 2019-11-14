@@ -454,6 +454,9 @@
     <Content Include="Images\mybg.png" />
     <Content Include="Images\pulse1.png" />
     <Content Include="Images\ribbon.png" />
+    <Content Include="Images\s1.jpg" />
+    <Content Include="Images\s2.jpg" />
+    <Content Include="Images\s3.jpg" />
     <Content Include="Images\sptouch-icon-iphone.png" />
     <Content Include="Images\timer.png" />
     <Content Include="Images\touch-icon-ipad-retina.png" />
@@ -595,6 +598,7 @@
     <Content Include="private.config" />
     <Content Include="Views\Admin\ManageProjectUsers.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
+    <Content Include="Views\Account\ProfilePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

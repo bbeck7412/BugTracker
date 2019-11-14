@@ -363,13 +363,13 @@ Use search to find needed section.
                     <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
                     <ul style="display: block;">
                         <li class="active">
-                            <a href="index.html" title="Dashboard"><span class="menu-item-parent">Analytics Dashboard</span></a>
+                            <a href=@Url.Action("Index","Home") title="Dashboard"><span class="menu-item-parent"> Home </span></a>
                         </li>
                         <li>
-                            <a href="dashboard-marketing.html" title="Dashboard"><span class="menu-item-parent">Marketing Dashboard</span></a>
+                            <a href=@Url.Action("Index", "Projects") title="Dashboard"><span class="menu-item-parent"> Projects </span></a>
                         </li>
                         <li class="">
-                            <a href="dashboard-social.html" title="Dashboard"><span class="menu-item-parent">Social Wall</span></a>
+                            <a href=@Url.Action("Index", "Tickets") title="Dashboard"><span class="menu-item-parent"> Tickets </span></a>
                         </li>
                     </ul>
                 </li>
@@ -590,7 +590,7 @@ Use search to find needed section.
                             </ul>
                         </li>
                         <li>
-                            <a href="profile.html"><i class="fa fa-group"></i> Profile</a>
+                            <a href=@Url.Action("ProfilePage", "Home")><i class="fa fa-group"></i> Profile</a>
                         </li>
                         <li>
                             <a href="timeline.html"><i class="fa fa-clock-o"></i> Timeline</a>
