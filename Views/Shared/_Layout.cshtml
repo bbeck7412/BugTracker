@@ -287,46 +287,7 @@ Use search to find needed section.
             </div>
         </div>
         <!-- end voice command -->
-        <!-- multiple lang dropdown : find all flags in the flags page -->
-        <ul class="header-dropdown-list hidden-xs">
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="img/blank.gif" class="flag flag-us" alt="United States"> <span> English (US) </span> <i class="fa fa-angle-down"></i> </a>
-                <ul class="dropdown-menu pull-right">
-                    <li class="active">
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-us" alt="United States"> English (US)</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-fr" alt="France"> Français</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-es" alt="Spanish"> Español</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-de" alt="German"> Deutsch</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-jp" alt="Japan"> 日本語</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-cn" alt="China"> 中文</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-it" alt="Italy"> Italiano</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-pt" alt="Portugal"> Portugal</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-ru" alt="Russia"> Русский язык</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);"><img src="img/blank.gif" class="flag flag-kr" alt="Korea"> 한국어</a>
-                    </li>
 
-                </ul>
-            </li>
-        </ul>
-        <!-- end multiple lang -->
         <!-- end pulled right: nav area -->
 
     </header>
@@ -389,261 +350,65 @@ Use search to find needed section.
                     </ul>
                 </li>
                 @*<li>
-                    <a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Outlook</span> <span class="badge pull-right inbox-badge margin-right-13">14</span></a>
-                </li>*@
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent"> Admin </span></a>
-                    <ul>
+            <a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Outlook</span> <span class="badge pull-right inbox-badge margin-right-13">14</span></a>
+        </li>*@
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
                         <li>
-                            <a href="flot.html">Flot Chart</a>
-                        </li>
-                        <li>
-                            <a href="morris.html">Morris Charts</a>
-                        </li>
-                        <li>
-                            <a href="sparkline-charts.html">Sparklines</a>
-                        </li>
-                        <li>
-                            <a href="easypie-charts.html">EasyPieCharts</a>
-                        </li>
-                        <li>
-                            <a href="dygraphs.html">Dygraphs</a>
-                        </li>
-                        <li>
-                            <a href="chartjs.html">Chart.js</a>
-                        </li>
-                        <li>
-                            <a href="hchartable.html">HighchartTable <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent"> Manager </span></a>
-                    <ul>
-                        <li>
-                            <a href="table.html">Normal Tables</a>
-                        </li>
-                        <li>
-                            <a href="datatables.html">Data Tables <span class="badge inbox-badge bg-color-greenLight hidden-mobile">responsive</span></a>
-                        </li>
-                        <li>
-                            <a href="jqgrid.html">Jquery Grid</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent"> Developer </span></a>
-                    <ul>
-                        <li>
-                            <a href="form-elements.html">Smart Form Elements</a>
-                        </li>
-                        <li>
-                            <a href="form-templates.html">Smart Form Layouts</a>
-                        </li>
-                        <li>
-                            <a href="validation.html">Smart Form Validation</a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-forms.html">Bootstrap Form Elements</a>
-                        </li>
-                        <li>
-                            <a href="bootstrap-validator.html">Bootstrap Form Validation</a>
-                        </li>
-                        <li>
-                            <a href="plugins.html">Form Plugins</a>
-                        </li>
-                        <li>
-                            <a href="wizard.html">Wizards</a>
-                        </li>
-                        <li>
-                            <a href="other-editors.html">Bootstrap Editors</a>
-                        </li>
-                        <li>
-                            <a href="dropzone.html">Dropzone</a>
-                        </li>
-                        <li>
-                            <a href="image-editor.html">Image Cropping</a>
-                        </li>
-                        <li>
-                            <a href="ckeditor.html">CK Editor</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent"> Submitter </span></a>
-                    <ul>
-                        <li>
-                            <a href="general-elements.html">General Elements</a>
-                        </li>
-                        <li>
-                            <a href="buttons.html">Buttons</a>
-                        </li>
-                        <li>
-                            <a href="#">Icons</a>
+                            <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent"> Admin </span></a>
                             <ul>
                                 <li>
-                                    <a href="fa.html"><i class="fa fa-plane"></i> Font Awesome</a>
+                                    @Html.ActionLink("Manage Roles", "ManageRoles", "Admin")
                                 </li>
                                 <li>
-                                    <a href="glyph.html"><i class="glyphicon glyphicon-plane"></i> Glyph Icons</a>
-                                </li>
-                                <li>
-                                    <a href="flags.html"><i class="fa fa-flag"></i> Flags</a>
+                                    @Html.ActionLink("Project Assignment", "ManageProjectUsers", "Admin")
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="grid.html">Grid</a>
-                        </li>
-                        <li>
-                            <a href="treeview.html">Tree View</a>
-                        </li>
-                        <li>
-                            <a href="nestable-list.html">Nestable Lists</a>
-                        </li>
-                        <li>
-                            <a href="jqui.html">JQuery UI</a>
-                        </li>
-                        <li>
-                            <a href="typography.html">Typography</a>
-                        </li>
-                        <li>
-                            <a href="#">Six Level Menu</a>
-                            <ul>
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #2</a>
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-folder-open"></i> Sub #2.1 </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> Item #2.1.1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-plus"></i> Expand</a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-folder-open"></i> Item #3</a>
+                    }
 
-                                    <ul>
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level </a>
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="inactive"><i class="fa fa-fw fa-folder-open"></i> Item #4 (disabled)</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-cloud"><em>3</em></i> <span class="menu-item-parent">Cool Features!</span></a>
-                    <ul>
+                    if (User.IsInRole("ProjectManager"))
+                    {
                         <li>
-                            <a href="calendar.html"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Calendar</span></a>
-                        </li>
-                        <li>
-                            <a href="gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">GMap Skins</span><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-puzzle-piece"></i> <span class="menu-item-parent">App Views</span></a>
-                    <ul>
-                        <li>
-                            <a href="projects.html"><i class="fa fa-file-text-o"></i> Projects</a>
-                        </li>
-                        <li>
-                            <a href="blog.html"><i class="fa fa-paragraph"></i> Blog</a>
-                        </li>
-                        <li>
-                            <a href="gallery.html"><i class="fa fa-picture-o"></i> Gallery</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-comments"></i> Forum Layout</a>
+                            <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent"> Manager </span></a>
                             <ul>
-                                <li><a href="forum.html">General View</a></li>
-                                <li><a href="forum-topic.html">Topic View</a></li>
-                                <li><a href="forum-post.html">Post View</a></li>
+                                <li>
+                                    @Html.ActionLink("Project Assignment", "ManageProjectUsers", "Admin")
+                                </li>
                             </ul>
                         </li>
+                    }
+
+                    if (User.IsInRole("Developer"))
+                    {
                         <li>
-                            <a href=@Url.Action("ProfilePage", "Home")><i class="fa fa-group"></i> Profile</a>
+                            <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent"> Developer </span></a>
+                            <ul>
+                                <li>
+                                    <a href="form-elements.html">Smart Form Elements</a>
+                                </li>
+                            </ul>
                         </li>
+                    }
+
+                    if (User.IsInRole("Submitter"))
+                    {
                         <li>
-                            <a href="timeline.html"><i class="fa fa-clock-o"></i> Timeline</a>
+                            <a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent"> Submitter </span></a>
+                            <ul>
+                                <li>
+                                    <a href="general-elements.html">General Elements</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="search.html"><i class="fa fa-search"></i>  Search Page</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">E-Commerce</span></a>
-                    <ul>
-                        <li><a href="orders.html">Orders</a></li>
-                        <li><a href="products-view.html">Products View</a></li>
-                        <li><a href="products-detail.html">Products Detail</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
-                    <ul>
-                        <li>
-                            <a href="../Landing_Page/" target="_blank">Landing Page <i class="fa fa-external-link"></i></a>
-                        </li>
-                        <li>
-                            <a href="pricing-table.html">Pricing Tables</a>
-                        </li>
-                        <li>
-                            <a href="invoice.html">Invoice</a>
-                        </li>
-                        <li>
-                            <a href="login.html" target="_top">Login</a>
-                        </li>
-                        <li>
-                            <a href="register.html" target="_top">Register</a>
-                        </li>
-                        <li>
-                            <a href="forgotpassword.html" target="_top">Forgot Password</a>
-                        </li>
-                        <li>
-                            <a href="lock.html" target="_top">Locked Screen</a>
-                        </li>
-                        <li>
-                            <a href="error404.html">Error 404</a>
-                        </li>
-                        <li>
-                            <a href="error500.html">Error 500</a>
-                        </li>
-                        <li>
-                            <a href="blank_.html">Blank Page</a>
-                        </li>
-                    </ul>
-                </li>
+                    }
+
+                }
+
+
+
                 <li class="chat-users top-menu-invisible">
                     <a href="#"><i class="fa fa-lg fa-fw fa-comment-o"><em class="bg-color-pink flash animated">!</em></i> <span class="menu-item-parent">Smart Chat API <sup>beta</sup></span></a>
                     <ul>
