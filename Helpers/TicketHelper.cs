@@ -14,7 +14,7 @@ namespace BugTracker.Helpers
 
         public int SetDefaultTicketStatus()
         {
-            return db.TicketStatus.FirstOrDefault(ts => ts.StatusName == "New").Id;
+            return db.TicketStatus.FirstOrDefault(ts => ts.Name == "New").Id;
         }
 
         public List<Ticket>ListMyTickets()
