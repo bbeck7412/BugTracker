@@ -206,6 +206,7 @@
     <Compile Include="Models\TicketStatusController.cs" />
     <Compile Include="Models\TicketType.cs" />
     <Compile Include="Models\TicketTypesController.cs" />
+    <Compile Include="Models\TicketViewModel.cs" />
     <Compile Include="Models\UserProjectListViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
