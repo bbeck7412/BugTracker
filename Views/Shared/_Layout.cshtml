@@ -354,7 +354,7 @@ Use search to find needed section.
         </li>*@
                 @if (User.Identity.IsAuthenticated)
                 {
-                    if (User.IsInRole("Admin"))
+                    if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
                     {
                         <li>
                             <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent"> Admin </span></a>

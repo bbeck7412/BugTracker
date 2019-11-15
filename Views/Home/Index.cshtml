@@ -21,7 +21,7 @@
                         <h5 style="color:#23c317"> Tickets <span class="txt-color-greenLight"> <a href=@Url.Action("Index","Tickets")> <i class="fa fa-ticket" style="color:#23c317"></i></a> &nbsp; @Model.Tickets.Count </span></h5>
                     </li>
 
-                    if (User.IsInRole("Admin")| User.IsInRole("ProjectManager"))
+                    if (User.IsInRole("Admin")| User.IsInRole("Administrator") | User.IsInRole("ProjectManager"))
                     {
                     <li class="sparks-info">
                         <h5 style="color:#2a46a0"> Users on projects <span class="txt-color-blue"> <a href=@Url.Action("ManageProjectUsers", "Admin")> <i class="fa fa-user" style="color:#2a46a0"></i></a> &nbsp; @Model.Users.Count </span></h5>
