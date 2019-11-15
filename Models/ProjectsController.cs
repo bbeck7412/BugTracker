@@ -40,6 +40,7 @@ namespace BugTracker.Models
         }
 
         // GET: Projects/Create
+        [Authorize(Roles = "Admin,Administrator,ProjectManager")]
         public ActionResult Create()
         {
             return View();
@@ -49,6 +50,7 @@ namespace BugTracker.Models
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize (Roles = "Admin,Administrator,ProjectManager")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,UserId,Created,Updated")] Project project)
         {
