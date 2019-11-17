@@ -19,16 +19,9 @@ namespace BugTracker.Models
         }
 
         // GET: Projects
-        
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return View(db.Projects.ToList());
-            }
-            else
-                return RedirectToAction("Login", "Account");
-            
+            return View(db.Projects.ToList());
         }
 
         // GET: Projects/Details/5
