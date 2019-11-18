@@ -7,10 +7,10 @@
 <h2>Index</h2>
 @if (User.Identity.IsAuthenticated)
 {
-    if (User.IsInRole("Admin") | User.IsInRole("Administrator") | User.IsInRole("ProjectManager"))
+    if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
     {
         <p>
-            <a href=@Url.Action("Create", "Projects") class="btn btn-primary"> Create Project </a>
+            <a href=@Url.Action("Create", "Projects") class="btn btn-primary"> Create New Project </a>
         </p>
     }
 

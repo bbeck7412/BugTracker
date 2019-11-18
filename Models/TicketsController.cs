@@ -44,6 +44,8 @@ namespace BugTracker.Models
         }
 
         // GET: Tickets/Create
+        [Authorize (Roles = "Submitter")]
+        
         public ActionResult Create()
         {
            
@@ -57,6 +59,7 @@ namespace BugTracker.Models
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Submitter")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,ProjectId,TicketTypeId,TicketPriorityId,Title,Description")] Ticket ticket)
         {

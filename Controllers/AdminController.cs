@@ -61,9 +61,9 @@ namespace BugTracker.Controllers
             }
             return RedirectToAction("ManageRoles","Admin");
         }
-        
 
-        //[Authorize (Roles = "Admin,Administrator,ProjectManager")]
+
+        [Authorize(Roles = "Admin,Administrator,ProjectManager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ManageProjectUsers(List<int> projects, string projectManagerId, List <string> developers, List <string> submitters)
