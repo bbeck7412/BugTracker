@@ -72,6 +72,7 @@ namespace BugTracker.Models
         }
 
         // GET: Projects/Edit/5
+        [Authorize(Roles ="Admin,Administrator,ProjectManager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +91,7 @@ namespace BugTracker.Models
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin,Administrator,ProjectManager")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,UserId,Created,Updated")] Project project)
         {
@@ -103,6 +105,7 @@ namespace BugTracker.Models
         }
 
         // GET: Projects/Delete/5
+        [Authorize(Roles = "Admin,Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -119,6 +122,7 @@ namespace BugTracker.Models
 
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin,Administrator")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
