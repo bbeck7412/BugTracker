@@ -601,6 +601,7 @@
     <Content Include="Views\Admin\ManageProjectUsers.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\Account\ProfilePage.cshtml" />
+    <Content Include="Views\Home\DemoLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

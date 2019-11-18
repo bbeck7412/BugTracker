@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BugTracker.Models;
 using BugTracker.Helpers;
+using System.Web.Configuration;
 
 namespace BugTracker.Controllers
 {
@@ -18,12 +19,16 @@ namespace BugTracker.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-         RoleHelper roleHelper= new RoleHelper();
+        RoleHelper roleHelper = new RoleHelper();
+
+
+
+
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -35,9 +40,9 @@ namespace BugTracker.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -62,6 +67,30 @@ namespace BugTracker.Controllers
             return View();
         }
 
+        //Demo Login
+
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<ActionResult> DemoLoginAsync(string emailKey)
+        {
+            var email = WebConfigurationManager.AppSettings[emailKey];
+            var password = WebConfigurationManager.AppSettings["DemoUserPassword"];
+
+            var result = await SignInManager.PasswordSignInAsync(email, password, false, shouldLockout: false);
+
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return RedirectToAction("Index", "Home");
+                case SignInStatus.Failure:
+                default:
+                    return RedirectToAction("Login", "Account");
+            }
+
+        }
+
         //
         // POST: /Account/Login
         [HttpPost]
@@ -71,7 +100,7 @@ namespace BugTracker.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Login","Account");
+                return RedirectToAction("Login", "Account");
             }
 
             // This doesn't count login failures towards account lockout
@@ -121,7 +150,7 @@ namespace BugTracker.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -137,7 +166,7 @@ namespace BugTracker.Controllers
 
         //
         // GET: /Account/Register
-        
+
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -160,9 +189,13 @@ namespace BugTracker.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName= model.Email,
-                    FirstName= model.FirstName, LastName = model.LastName,
-                    Email = model.Email, DisplayName = $"{model.FirstName} {model.LastName}" 
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    DisplayName = $"{model.FirstName} {model.LastName}"
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -214,7 +247,7 @@ namespace BugTracker.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null )
+                if (user == null)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
@@ -432,14 +465,14 @@ namespace BugTracker.Controllers
         }
 
         //GET: /Account/CustomLogOff
-        
-        
+
+
         public ActionResult CustomLogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             Session.Clear();
-            Session.Abandon();          
-            return RedirectToAction("Login","Account");
+            Session.Abandon();
+            return RedirectToAction("Login", "Account");
         }
 
 

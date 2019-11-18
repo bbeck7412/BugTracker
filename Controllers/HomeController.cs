@@ -15,6 +15,14 @@ namespace BugTracker.Controllers
     public class HomeController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+
+        public ActionResult DemoLogin ()
+        {
+            return View ();
+        }
+
+
+
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)

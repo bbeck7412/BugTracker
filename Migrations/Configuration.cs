@@ -49,7 +49,7 @@ namespace BugTracker.Migrations
 
             #region User creation
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var demoPassword = WebConfigurationManager.AppSettings["DemoPassword"];
+            var demoPassword = WebConfigurationManager.AppSettings["DemoUserPassword"];
 
             if (!context.Users.Any(u => u.Email == "Bbeck7412@gmail.com"))
             {
@@ -72,7 +72,7 @@ namespace BugTracker.Migrations
                     FirstName = "Demo",
                     LastName = "Admin",
                     DisplayName = "Demo Administrator"
-                }, "Abc&123");
+                }, "DemoUserPassword");
             }
 
             if (!context.Users.Any(u => u.Email == "DemoPM@mailinator.com"))
@@ -84,7 +84,7 @@ namespace BugTracker.Migrations
                     FirstName = "Demo",
                     LastName = "Project Manager",
                     DisplayName = "Demo Project Manager"
-                }, "Abc&123");
+                }, "DemoUserPassword");
             }
 
             if (!context.Users.Any(u => u.Email == "DemoDev@mailinator.com"))
@@ -96,7 +96,7 @@ namespace BugTracker.Migrations
                     FirstName = "Demo",
                     LastName = "Developer",
                     DisplayName = " Demo Developer"
-                }, "Abc&123");
+                }, "DemoUserPassword");
             }
 
             if (!context.Users.Any(u => u.Email == "DemoSub@mailinator.com"))
@@ -108,7 +108,7 @@ namespace BugTracker.Migrations
                     FirstName = "Demo",
                     LastName = "Submitter",
                     DisplayName = "Demo Submitter"
-                }, "Abc&123");
+                }, "DemoUserPassword");
             }
             #endregion
 

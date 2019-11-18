@@ -98,7 +98,7 @@
                     <div class="well no-padding">
                         @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "smart-form client-form" }))
                         {  @Html.AntiForgeryToken()
-                            
+
                             <header>
                                 Sign In
                             </header>
@@ -130,18 +130,21 @@
                                         <input type="password" name="PasswordConfirm">
                                         <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Confirm your password</b>
                                     </label>
-                                    <div class="note">
+                                    @*<div class="note">
                                         <a href="forgotpassword.html">Forgot password?</a>
+                                    </div>*@
+                                    <div class="note">
+                                        <button class="btn btn-danger" onclick="location.href='@Url.Action("DemoLogin", "Home")';return false;"> Demo Users </button>
                                     </div>
                                 </section>
 
                             </fieldset>
                             <footer>
-                                <button type="submit" class="btn btn-primary" value="Login">
+                                <button type="submit" class="btn btn-danger" value="Login">
                                     Sign in
                                 </button>
                             </footer>
-                            
+
                         }
 
 
