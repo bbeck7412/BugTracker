@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -52,6 +53,8 @@ namespace BugTracker.Models
         {
             if (ModelState.IsValid)
             {
+                ticketComment.UserId = User.Identity.GetUserId();
+                ticketComment.Created = DateTime.Now;
                 db.TicketComments.Add(ticketComment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
