@@ -27,6 +27,9 @@ namespace BugTracker.Helpers
             var myRole = roleHelper.ListUserRoles(userId).FirstOrDefault();
 
             ////Step 2: Use that role to build the appropriate set of Tickets
+            ///
+            /// If statement example 
+            /// 
             //if (myRole == "Admin")
             //{
             //    myTickets.AddRange(db.Tickets);

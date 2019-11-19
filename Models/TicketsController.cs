@@ -19,7 +19,8 @@ namespace BugTracker.Models
         private TicketHistoryHelper auditHelper = new TicketHistoryHelper();
 
        // GET: Tickets
-        [Authorize]
+        
+        
         public ActionResult Index()
         {
             //var tickets = db.Tickets.Include(t => t.Developer).Include(t => t.Project).Include(t => t.Submitter).Include(t => t.TicketPriority).Include(t => t.TicketStatus).Include(t => t.TicketType);

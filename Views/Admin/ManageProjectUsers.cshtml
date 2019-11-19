@@ -20,21 +20,25 @@
             </div>
 
             <div class=" col-md-4">
-                @if (User.IsInRole("Admin"))
+                @if (User.Identity.IsAuthenticated)
                 {
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3> Project Manager </h3>
+                     if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3> Project Manager </h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            @Html.DropDownList("ProjectManagerId", null, "--Select--", new { @class = "form-control" })
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.DropDownList("ProjectManagerId", null, "--Select--", new { @class = "form-control" })
+                            </div>
                         </div>
-                    </div>
 
-                    <hr />
+                        <hr />
+                    }
                 }
+
                 <div class="row">
                     <div class="col-md-12">
                         <h3> Developers</h3>

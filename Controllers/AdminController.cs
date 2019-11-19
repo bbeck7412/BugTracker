@@ -115,7 +115,7 @@ namespace BugTracker.Controllers
             ViewBag.Developers = new MultiSelectList(roleHelper.UsersInRole("Developer"), "Id", "Email");
             ViewBag.Submitters = new MultiSelectList(roleHelper.UsersInRole("Submitter"), "Id", "Email");
 
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
             {
                 ViewBag.ProjectManagerId = new SelectList(roleHelper.UsersInRole("ProjectManager"), "Id", "Email");
             }
