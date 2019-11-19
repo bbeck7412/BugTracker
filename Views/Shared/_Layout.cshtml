@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity;
-
+@using BugTracker.Models
+@using BugTracker.Helpers
 <html lang="en-us">
 <head>
 
@@ -302,7 +303,9 @@ Use search to find needed section.
                 <!-- User image size is adjusted inside CSS, it should stay as it -->
 
                 <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-                    <img src="~/Content/img/avatars/sunny.png" alt="me" class="online" />
+                    @*<img src="~/Content/img/avatars/sunny.png" alt="me" class="online" />*@
+                    @*<img src="@UserHelper.GetAvatarPath" alt="..." class="img-circle profile-pic" />*@
+
                     <span>
                         john.doe
                     </span>
