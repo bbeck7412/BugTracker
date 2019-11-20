@@ -31,6 +31,7 @@ namespace BugTracker.Models
         }
 
         // GET: Tickets/Details/5
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,6 +45,20 @@ namespace BugTracker.Models
             }
             return View(ticket);
         }
+
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Ticket ticket = db.Tickets.Find(id);
+        //    if (ticket == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(ticket);
+        //}
 
         // GET: Tickets/Create
         [Authorize (Roles = "Submitter")]
@@ -73,14 +88,27 @@ namespace BugTracker.Models
                 ticket.Created = DateTime.Now;
                 ticket.TicketStatusId = ticketHelper.SetDefaultTicketStatus();
 
+                //var Slug = StringUtilities.URLFriendly(ticket.Title);
+                //if (String.IsNullOrWhiteSpace(Slug))
+                //{
+                //    ModelState.AddModelError("Title", "Invalid Title");
+                //    return View(ticket);
+                //}
+                //if (db.Tickets.Any(c => c.Slug == Slug))
+                //{
+                //    ModelState.AddModelError("Title", "The title must be unique");
+                //    return View(ticket);
+                //}
+
+                //ticket.Slug = Slug;
+                //ticket.Created = DateTime.Now;
+
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
-            
-
-            
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", ticket.ProjectId);
             ViewBag.TicketPriorityId = new SelectList(db.TicketPriorities, "Id", "Name", ticket.TicketPriorityId);  
             ViewBag.TicketTypeId = new SelectList(db.TicketTypes, "Id", "Name", ticket.TicketTypeId);

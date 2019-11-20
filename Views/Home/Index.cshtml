@@ -79,28 +79,32 @@
                                         <th class="hasinput" style="width:17%">
                                             <input type="text" class="form-control" placeholder=" Project Name " />
                                         </th>
+                                        
                                         <th class="hasinput" style="width:18%">
                                             <div class="input-group">
                                                 <input class="form-control" placeholder=" Project Description " type="text">
                                                 <span class="input-group-addon">
                                                 </span>
                                             </div>
-
-
                                         </th>
+
                                         <th class="hasinput" style="width:16%">
                                             <input type="text" class="form-control" placeholder=" Project Manager " />
                                         </th>
+
                                         <th class="hasinput" style="width:17%">
                                             <input type="text" class="form-control" placeholder=" Created Date " />
                                         </th>
+
                                         <th class="hasinput icon-addon">
                                             <input id="dateselect_filter" type="text" placeholder=" Users " class="form-control datepicker" data-dateformat="yy/mm/dd">
                                             <label for="dateselect_filter" class="glyphicon glyphicon-calendar no-margin padding-top-15" rel="tooltip" title="" data-original-title="Filter Date"></label>
                                         </th>
+
                                         <th class="hasinput" style="width:16%">
                                             <input type="text" class="form-control" placeholder=" Tickets " />
                                         </th>
+
                                     </tr>
                                     <tr>
                                         <th data-class="expand">Name</th>
@@ -122,6 +126,7 @@
                                             <td>@proj.Project.Created.Date.ToString("MM.dd.yyyy")</td>
                                             <td>@proj.Project.Users.Count()</td>
                                             <td>@proj.Project.Tickets.Count</td>
+                                            
                                         </tr>
                                     }
 

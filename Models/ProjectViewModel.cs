@@ -10,5 +10,6 @@ namespace BugTracker.Models
         public Project Project { get; set; }
         public ApplicationUser ProjectManager { get; set; }
         public ApplicationUser User { get; set; }
+       
     }
 }
