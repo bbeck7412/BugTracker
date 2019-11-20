@@ -17,6 +17,7 @@ namespace BugTracker.Models
 
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Slug { get; set; }
         public DateTime Created { set; get; }
         public DateTime? Updated { get; set; }
 
