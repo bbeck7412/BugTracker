@@ -85,6 +85,8 @@ namespace BugTracker.Migrations
                     LastName = "Project Manager",
                     DisplayName = "Demo Project Manager"
                 }, "DemoUserPassword");
+
+                
             }
 
             if (!context.Users.Any(u => u.Email == "DemoDev@mailinator.com"))
@@ -140,9 +142,9 @@ namespace BugTracker.Migrations
                 new Project { Name = "Brandon's Bug Tracker", Description = "My Bug Tracker Project Using MVC & C#", Created = DateTime.Now },
                 new Project { Name = "Financial Portal", Description = "Financial portal Project Using MVC & C#", Created = DateTime.Now },
                 new Project { Name = "Xamarin Mobile Project", Description = "My Xamarin Project", Created = DateTime.Now }
-
-
                 );
+
+
             context.TicketPriorities.AddOrUpdate(
                 p => p.Name,
                 new TicketPriority { Name = "Low Priority", Description = "Application or personal procedure unusable, where a workaround is available or a repair is possible." },

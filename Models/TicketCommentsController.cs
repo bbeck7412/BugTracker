@@ -13,6 +13,7 @@ namespace BugTracker.Models
     public class TicketCommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private Project proj = new Project();
 
         // GET: TicketComments
         public ActionResult Index()
@@ -39,6 +40,7 @@ namespace BugTracker.Models
         // GET: TicketComments/Create
         public ActionResult Create()
         {
+
             ViewBag.TicketId = new SelectList(db.Tickets, "Id", "SubmitterId");
             ViewBag.UserId = new SelectList(db.Users, "Id", "FirstName");
             return View();
@@ -49,10 +51,11 @@ namespace BugTracker.Models
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Created,CommentBody,TicketId,UserId")] TicketComment ticketComment)
+        public ActionResult Create([Bind(Include = "Id,Created,CommentBody,TicketId,UserId,ProjectId")] TicketComment ticketComment)
         {
             if (ModelState.IsValid)
             {
+                
                 ticketComment.UserId = User.Identity.GetUserId();
                 ticketComment.Created = DateTime.Now;
                 db.TicketComments.Add(ticketComment);

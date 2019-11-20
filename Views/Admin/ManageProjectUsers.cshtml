@@ -19,10 +19,14 @@
                 <button type="submit" class="btn btn-primary btn-lg"> Assign</button>
             </div>
 
+            <div class=" col-md-1 col-md-off-1">
+                <button type="reset" class="btn btn-primary btn-lg"> Remove Users </button>
+            </div>
+
             <div class=" col-md-4">
                 @if (User.Identity.IsAuthenticated)
                 {
-                     if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
+                    if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
                     {
                         <div class="row">
                             <div class="col-md-12">

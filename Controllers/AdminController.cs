@@ -107,7 +107,9 @@ namespace BugTracker.Controllers
             return RedirectToAction("ManageProjectUsers");
         }
 
+
         [Authorize(Roles = "Admin, ProjectManager, Administrator")]
+        [HttpGet]
         
         public ActionResult ManageProjectUsers()
         {

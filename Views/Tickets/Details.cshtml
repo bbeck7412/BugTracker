@@ -96,6 +96,13 @@
                 @Html.DisplayFor(model => model.Updated)
             </dd>
 
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProjectId)
+            </dd>
         </dl>
     </div>
 
@@ -107,7 +114,7 @@
             @using (Html.BeginForm("Create", "TicketComments", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
-                @Html.Hidden("TicketsId", Model.Id)
+                @Html.Hidden("TicketId", Model.Id)
 
                 <div class="row">
                     <div class="offset-3 col-md-6">
@@ -118,6 +125,13 @@
                 <div class="row">
                     <div class="offset-3 col-md-6">
                         <button type="submit" class=" btn btn-sm btn-dark"> Add </button>
+                        @*<a href=@Url.Action("Details", "Tickets", FormMethod.Post) class="btn btn-primary"> Add Comment </a>*@
+                        
+                        @using (Html.BeginForm("Details","Ticket"))
+                        {
+                           <input type="submit" class="btn btn-primary" value="Add Comments" />
+                        }
+
                     </div>
                 </div>
                 
@@ -133,8 +147,9 @@
             <h2> Author: @comment.User.DisplayName</h2>
             <div class="media">
                 <img src="~/Content/img/avatars/sunny.png" class="glyphicon-align-left margin-right-5" style="width:60px" />
+                <div> <h2>  @comment.CommentBody </h2> </div>
                 <div class="media-body">
-                    <h4> Written: @comment.Created.ToString("MMM dd, yyyy")</h4>
+                    <h4> Written: @comment.Created.ToString("MMM dd, yyyy")</h4>              
                 </div>
             </div>
         </div>
