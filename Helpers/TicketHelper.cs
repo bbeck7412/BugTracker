@@ -69,9 +69,6 @@ namespace BugTracker.Helpers
                 "Submitter":
                     myTickets.AddRange(db.Tickets.Where(t => t.SubmitterId == userId));
                 break;
-
-                default:
-                    break;
                     
             }
 

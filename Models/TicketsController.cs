@@ -155,7 +155,7 @@ namespace BugTracker.Models
 
                 //HistoryHelper decides whether a history record needs to be added...
 
-                auditHelper.RecordHistoricalChanges(oldTicket, ticket);
+                auditHelper.RecordHistoricalChanges(oldTicket, newTicket);
 
                 return RedirectToAction("Index", "Home");
             }

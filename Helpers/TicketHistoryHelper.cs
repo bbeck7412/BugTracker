@@ -20,28 +20,43 @@ namespace BugTracker.Helpers
                     Property = "TicketStatusId",
                     OldValue = oldTicket.TicketStatus.StatusName,
                     NewValue = newTicket.TicketStatus.StatusName,
-                    //Changed = newTicket.Updated.Now(),
+                    Changed = (DateTime)newTicket.Updated,
                     TicketId = newTicket.Id,
-                }; 
+                    UserId = HttpContext.Current.User.Identity.GetUserId()
+                };
                 db.TicketHistories.Add(newHistoryRecord);
             }
 
             if (oldTicket.TicketPriorityId != newTicket.TicketPriorityId)
             {
-                var newHistoryRecord1 = new TicketHistory
+                var newHistoryRecord = new TicketHistory
                 {
                     Property = "TicketPriorityId",
                     OldValue = oldTicket.TicketPriority.Name,
                     NewValue = newTicket.TicketPriority.Name,
-                    //Changed = (DateTime)newTicket.Updated,
+                    Changed = (DateTime)newTicket.Updated,
                     TicketId = newTicket.Id,
                     UserId = HttpContext.Current.User.Identity.GetUserId()
                 };
-                db.TicketHistories.Add(newHistoryRecord1);
+                db.TicketHistories.Add(newHistoryRecord);
+            }
+
+            if (oldTicket.DeveloperId != newTicket.DeveloperId)
+            {
+
+                var newHistoryRecord = new TicketHistory
+                {
+                    Property = "DeveloperId",
+                    OldValue = oldTicket.Developer == null? "Un-assigned" : oldTicket.Developer.DisplayName,
+                    NewValue = newTicket.Developer == null? "Un-assigned" : newTicket.Developer.DisplayName,
+                    Changed = (DateTime)newTicket.Updated,
+                    TicketId = newTicket.Id,
+                    UserId = HttpContext.Current.User.Identity.GetUserId()
+                };
+                db.TicketHistories.Add(newHistoryRecord);
             }
 
             db.SaveChanges();
         }
-
     }
 }
