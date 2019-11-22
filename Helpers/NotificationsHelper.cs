@@ -20,7 +20,11 @@ namespace BugTracker.Helpers
             else if (ticketHasBeenUnAssigned)
                 AddUnAssignmentNotification(oldTicket, newTicket);
             else if (ticketHasBeenReAssigned)
-                AddReAssignmentNotification(oldTicket, newTicket);
+            {
+                AddAssignmentNotification(oldTicket, newTicket);
+                AddUnAssignmentNotification(oldTicket, newTicket);
+            }
+            
 
         }
 
@@ -39,9 +43,18 @@ namespace BugTracker.Helpers
         }
 
         private void AddUnAssignmentNotification(Ticket oldTicket, Ticket newTicket)
-        { }
+        {
+            var notification = new TicketNotification
+            {
+                TicketId = newTicket.Id,
+                IsRead = false,
+                RecipientId = oldTicket.DeveloperId,
+                NotificationBody = $"You have been Unassigned from a ticket {newTicket.Id} on {newTicket.Project.Name}. The ticket title is {newTicket.Title} and was created on {newTicket.Created} with a priority of {newTicket.TicketPriority.Name}"
 
-        private void AddReAssignmentNotification(Ticket oldTicket, Ticket newTicket)
-        { }
+            };
+            db.TicketNotifications.Add(notification);
+            db.SaveChanges();
+        }
+
     }
 }

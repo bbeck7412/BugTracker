@@ -177,10 +177,13 @@
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\FileUploadValidator.cs" />
     <Compile Include="Helpers\NotificationHelper.cs" />
+    <Compile Include="Helpers\NotificationsHelper.cs" />
     <Compile Include="Helpers\ProjectHelper.cs" />
     <Compile Include="Helpers\RoleHelper.cs" />
+    <Compile Include="Helpers\Slug.cs" />
     <Compile Include="Helpers\TicketHelper.cs" />
     <Compile Include="Helpers\TicketHistoryHelper.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
@@ -445,8 +448,12 @@
     <Content Include="Images\back-img1.png" />
     <Content Include="Images\BugInc.jpg" />
     <Content Include="Images\Bug_Zapper.jpg" />
+    <Content Include="Images\Demosub.png" />
+    <Content Include="Images\DevImg.jpg" />
     <Content Include="Images\dummy.png" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\femAdmin.jpg" />
+    <Content Include="Images\femDev.jpg" />
     <Content Include="Images\flags.png" />
     <Content Include="Images\ipad-landscape.png" />
     <Content Include="Images\ipad-portrait.png" />
@@ -541,7 +548,6 @@
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Web.config" />
@@ -601,7 +607,8 @@
     <Content Include="Views\Admin\ManageProjectUsers.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\Account\ProfilePage.cshtml" />
-    <Content Include="Views\Home\DemoLogin.cshtml" />
+    <None Include="Properties\PublishProfiles\BBeckBlog - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\BugZapperApplication - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

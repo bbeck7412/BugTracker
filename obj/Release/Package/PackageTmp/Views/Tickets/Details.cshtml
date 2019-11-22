@@ -1,0 +1,148 @@
+﻿@model BugTracker.Models.Ticket
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Ticket</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Developer.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Developer.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Project.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Project.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Submitter.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Submitter.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TicketPriority.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TicketPriority.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TicketStatus.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TicketStatus.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TicketType.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TicketType.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Created)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Updated)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Updated)
+            </dd>
+
+        </dl>
+    </div>
+
+    <hr style="border:2px solid black;" />
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div id="ticketComments">
+            @using (Html.BeginForm("Create", "TicketComments", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("TicketsId", Model.Id)
+
+                <div class="row">
+                    <div class="offset-3 col-md-6">
+                        @Html.TextArea("CommentBody", new { rows = 5, cols = 50, placeholder = "Add Comment" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="offset-3 col-md-6">
+                        <button type="submit" class=" btn btn-sm btn-dark"> Add </button>
+                    </div>
+                </div>
+                
+            }
+        </div>
+    }
+
+    <hr style="border:2px solid black;" />
+
+    @foreach (var comment in Model.TicketComments.OrderByDescending(c => c.Created))
+    {
+        <div class="container margin-top-5">
+            <h2> Author: @comment.User.DisplayName</h2>
+            <div class="media">
+                <img src="~/Content/img/avatars/sunny.png" class="glyphicon-align-left margin-right-5" style="width:60px" />
+                <div class="media-body">
+                    <h4> Written: @comment.Created.ToString("MMM dd, yyyy")</h4>
+                </div>
+            </div>
+        </div>
+    }
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

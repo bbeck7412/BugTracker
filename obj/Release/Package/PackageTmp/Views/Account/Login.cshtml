@@ -1,0 +1,293 @@
+﻿@model BugTracker.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-us" id="extr-page">
+<head>
+    <meta charset="utf-8">
+    <title> SmartAdmin</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- #CSS Links -->
+    <!-- Basic Styles -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link href="~/Content/smartadmin-production-plugins.min.css" rel="stylesheet" />
+    <link href="~/Content/smartadmin-production.min.css" rel="stylesheet" />
+    <link href="~/Content/smartadmin-skins.min.css" rel="stylesheet" />
+
+    <!-- SmartAdmin RTL Support -->
+    <link href="~/Content/smartadmin-rtl.min.css" rel="stylesheet" />
+
+    <!-- We recommend you use "your_style.css" to override SmartAdmin
+         specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+    <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+    <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+    @*<link href="~/Content/demo.min.css" rel="stylesheet" />*@
+    <style>
+        #Login {
+            width: 100%;
+        }
+    </style>
+    <style>
+        #signInBtnWidth
+        {
+            width: 40%;
+        }
+    </style>
+    <style>
+        #demoLogin_button--
+        {
+            width: 100%;
+        }
+    </style>
+    <!-- #FAVICONS -->
+    <link rel="shortcut icon" href="~/Images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Images/favicon.ico" type="image/x-icon">
+
+    <!-- #GOOGLE FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+
+</head>
+
+<body class="animated fadeInDown">
+
+    <header id="header">
+
+        <div id="logo-group">
+            <h2 style="color:#a90329;"> Bug Zapper </h2>
+        </div>
+
+        <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Need an account?</span> <a href=@Url.Action("Register","Account") class="btn btn-danger">Create account</a> </span>
+
+    </header>
+    <div id="main" role="main">
+
+        <!-- MAIN CONTENT -->
+        <div id="content" class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 style="color:#a90329" class="login-header-big">Bug Zapper Demo Roles</h1>
+                    <div class="hero">
+                        <div class="col-md-6">
+                            @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("emailKey", "DemoAdminEmail")
+
+                                <section class="panel">
+                                    <header class="panel-heading bg-white">
+                                        <div class=" panel-heading-icon mt-sm">
+                                            <img src="~/Images/femAdmin.jpg" />
+                                        </div>
+                                    </header>
+                                    <div class="panel-body">
+                                        <button id="demoLogin_button--" type="submit" class="btn btn-lg btn-danger"> Admin Login </button>
+                                    </div>
+                                </section>
+
+                            }
+                        </div>
+
+                        <div class="col-md-6">
+                            @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("emailKey", "DemoPmEmail")
+
+                                <section class="panel">
+                                    <header class="panel-heading bg-white">
+                                        <div class=" panel-heading-icon mt-sm">
+                                            <img src="~/Images/DevImg.jpg" />
+                                        </div>
+                                    </header>
+                                    <div class="panel-body">
+                                        <button id="demoLogin_button--" type="submit" class="btn btn-lg btn-danger"> Project Manager Login </button>
+                                    </div>
+                                </section>
+                            }
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("emailKey", "DemoDevEmail")
+
+                                    <section class="panel">
+                                        <header class="panel-heading bg-white">
+                                            <div class=" panel-heading-icon  mt-sm">
+                                                <img src="~/Images/femDev.jpg" />
+                                            </div>
+                                        </header>
+                                        <div class="panel-body">
+                                            <button id="demoLogin_button--" type="submit" class="btn btn-lg btn-danger"> Developer Login </button>
+                                        </div>
+                                    </section>
+                                }
+                            </div>
+
+                            <div class="col-md-6">
+                                @using (Html.BeginForm("DemoLoginAsync", "Account", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("emailKey", "DemoSubEmail")
+
+                                    <section class="panel">
+                                        <header class="panel-heading bg-white">
+                                            <div class=" panel-heading-icon  mt-sm">
+                                                <img src="~/Images/Demosub.png" />
+                                            </div>
+                                        </header>
+                                        <div class="panel-body">
+                                            <button id="demoLogin_button--" type="submit" class="btn btn-lg btn-danger"> Submitter Login </button>
+                                        </div>
+                                    </section>
+                                }
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                   
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="well no-padding">
+                        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "smart-form client-form" }))
+                        {  @Html.AntiForgeryToken()
+
+                            <header style="background-color:#a90329; color:white" >
+                                Sign In
+                            </header>
+
+                            <fieldset>
+
+                                <section>
+                                    <label class="label">E-mail</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-user"></i>
+                                        <input type="email" name="Email">
+                                        <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Password</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-lock"></i>
+                                        <input type="password" name="Password">
+                                        <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+                                    </label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Confirm Password</label>
+                                    <label class="input">
+                                        <i class="icon-append fa fa-lock"></i>
+                                        <input type="password" name="PasswordConfirm">
+                                        <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Confirm your password</b>
+                                    </label>
+                                    @*<div class="note">
+                                        <a href="forgotpassword.html">Forgot password?</a>
+                                    </div>*@
+                                    
+                                </section>
+                            </fieldset>
+                            <footer>
+                                <button id="signInBtnWidth"type="submit" class="btn btn-danger pull-right" value="Login">
+                                    Sign in
+                                </button>
+                            </footer>
+
+                        }
+
+
+                    </div>
+
+                    @*<h5 class="text-center"> - Or sign in using -</h5>
+
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="javascript:void(0);" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>*@
+
+            @*<div class="col-offset-6 col-md-6">*@
+                    <br />
+                    <br />
+                <h5 class="text-center"> - LOGO PLACEHOLDER -</h5>
+
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            @*</div>*@
+        </div>
+
+    </div>
+
+
+    <!--================================================== -->
+    <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+    <script src="~/Scripts/pace.min.js"></script>
+
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery_ui.js"></script>
+
+    <!-- IMPORTANT: APP CONFIG -->
+    <script src="~/Scripts/app.config.js"></script>
+
+    @*JS TOUCH : include this plugin for mobile drag / drop touch events*@
+    <script src="~/Scripts/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- JQUERY VALIDATE -->
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <!-- JQUERY MASKED INPUT -->
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+    <!--[if IE 8]>
+
+        <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+    <![endif]-->
+    <!-- MAIN APP JS FILE -->
+    <script src="~/Scripts/app.min.js"></script>
+
+
+    <script src="~/Scripts/login_script.js"></script>
+
+</body>
+</html>

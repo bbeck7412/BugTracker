@@ -1,0 +1,96 @@
+﻿@model IEnumerable<BugTracker.Models.UserProjectListViewModel>
+@{
+    ViewBag.Title = "Manage Project Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class=" container">
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class=" col-md-4">
+                @Html.ListBox("Projects", null, new { @class = "form-control" })
+            </div>
+
+            <div class=" col-md-1 col-md-off-1">
+                <button type="submit" class="btn btn-primary btn-lg"> Assign</button>
+            </div>
+
+            <div class=" col-md-4">
+                @if (User.Identity.IsAuthenticated)
+                {
+                     if (User.IsInRole("Admin") | User.IsInRole("Administrator"))
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3> Project Manager </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.DropDownList("ProjectManagerId", null, "--Select--", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <hr />
+                    }
+                }
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3> Developers</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-12">
+                        @Html.ListBox("Developers", null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3> Submitters </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-12">
+                        @Html.ListBox("Submitters", null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayName("Projects")
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @foreach (var name in item.ProjectNames)
+                        {
+                            @name <br />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>  
+</div>
+
