@@ -29,6 +29,7 @@ namespace BugTracker.Helpers
 
         private void AddAssignmentNotification(Ticket oldTicket, Ticket newTicket)
         {
+            
             var notification = new TicketNotification
             {
                 TicketId = newTicket.Id,

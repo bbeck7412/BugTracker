@@ -17,6 +17,7 @@ namespace BugTracker.Models
         private ApplicationDbContext db = new ApplicationDbContext();
         private TicketHelper ticketHelper = new TicketHelper();
         private TicketHistoryHelper auditHelper = new TicketHistoryHelper();
+        private NotificationHelper notificationHelper = new NotificationHelper();
 
        // GET: Tickets
         
@@ -87,21 +88,6 @@ namespace BugTracker.Models
                 ticket.Created = DateTime.Now;
                 ticket.TicketStatusId = ticketHelper.SetDefaultTicketStatus();
 
-                //var Slug = StringUtilities.URLFriendly(ticket.Title);
-                //if (String.IsNullOrWhiteSpace(Slug))
-                //{
-                //    ModelState.AddModelError("Title", "Invalid Title");
-                //    return View(ticket);
-                //}
-                //if (db.Tickets.Any(c => c.Slug == Slug))
-                //{
-                //    ModelState.AddModelError("Title", "The title must be unique");
-                //    return View(ticket);
-                //}
-
-                //ticket.Slug = Slug;
-                //ticket.Created = DateTime.Now;
-
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -154,8 +140,12 @@ namespace BugTracker.Models
                 var newTicket = db.Tickets.AsNoTracking().FirstOrDefault(t => t.Id == ticket.Id);
 
                 //HistoryHelper decides whether a history record needs to be added...
-
                 auditHelper.RecordHistoricalChanges(oldTicket, newTicket);
+
+                //Decide if NotificationHelper needs to generate a notification....
+
+                notificationHelper.ManageNotifications(oldTicket, newTicket);
+
 
                 return RedirectToAction("Index", "Home");
             }
